@@ -36,6 +36,7 @@ Los merge conflicts se ven asi:
 
 git log -> muestra todos los commit que hemos hecho
     Muestra Hash del commit, autor, mensaje y fecha.
+git reflog -> muestra el log de las referencias del proyecto
 
 git reset --hard <commit_hash> -> vuelve el repo local 
     a la version del commit elegido.
