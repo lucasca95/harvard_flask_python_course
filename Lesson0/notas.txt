@@ -1,0 +1,43 @@
+Aprendemos sobre Git y los beneficios que trae el trabajo con control de versiones como
+mantener un sistema funcionando, agregarle nuevas funcionalidades sin afectar la versión
+actual, volver para atrás en cambios, etc.
+
+"GitHub" es un sitio web que aloja código de sistemas, aplicando control de versiones al 
+estilo Git.
+
+git clone -> permite tomar el codigo de un repositorio git y hacer una copia del mismo
+    en nuestra pc.
+
+git add -> marca archivos que tengamos en el repositorio local (nuestra pc) para ser 
+    agregados al repositorio Git una vez que hagamos un commit.
+
+git commit -m "mje" -> generar una foto del estado actual del proyecto en nuestra pc 
+    asociandole un mensaje para identificar que tiene ahora que lo hace diferente
+    a antes.
+git commit -am "mje" -> raliza un add y el commit juntos
+
+git push -> lleva una copia de la version actual del repo de nuestra PC a la nube Git
+
+git pull -> trae del repositorio Git la copia mas reciente del repo a la PC, con los 
+    cambios que tenga
+
+Si dos personas editan una misma linea, al hacer un pull tendremos lo que se llama un 
+error de conflicto (merge conflict). La forma de resolverlo que tiene Git es dejarle
+el problema al programador.
+
+Los merge conflicts se ven asi:
+    //codigo
+    <<<<< HEAD
+    //cambios locales!
+    =====
+    //cambios remotos!
+    >>>>> 1239ncu129d129d8h1dn1209120d81n20d    hash que identifica al commit 
+    //codigo
+
+git log -> muestra todos los commit que hemos hecho
+    Muestra Hash del commit, autor, mensaje y fecha.
+
+git reset --hard <commit_hash> -> vuelve el repo local 
+    a la version del commit elegido.
+git reset --hard origin/master -> vuelve el repo actual 
+    a la version del codigo que esta en GitHub
