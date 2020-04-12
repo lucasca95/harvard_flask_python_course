@@ -1,2 +1,2 @@
 # harvard_flask_python_course
-+ info en master
+Más info en master
