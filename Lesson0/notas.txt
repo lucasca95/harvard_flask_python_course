@@ -42,3 +42,6 @@ git reset --hard <commit_hash> -> vuelve el repo local
     a la version del commit elegido.
 git reset --hard origin/master -> vuelve el repo actual 
     a la version del codigo que esta en GitHub
+
+Una pagina HTML funciona bajo el esquema del Document Object Model (DOM)
+CSS (Cascade Style Sheet) -> util para trabajar la apariencia de nuestro sitio web 
