@@ -45,3 +45,7 @@ git reset --hard origin/master -> vuelve el repo actual
 
 Una pagina HTML funciona bajo el esquema del Document Object Model (DOM)
 CSS (Cascade Style Sheet) -> util para trabajar la apariencia de nuestro sitio web 
+
+GitHub tiene una funcion llamada GitHubPages que permite publicar en la web un sitio que este alojado en un repo github.
+Para hacerlo debemos ir a nuestro repo, Settings y bajar hasta GitHub Pages.
+Ahi elegimos la rama para hacer el delploy (generalmente master)
