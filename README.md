@@ -1,2 +1,2 @@
 <h1>Harvard Web Course</h1>
-<a href="index.html">Ir a Inicio</a>
+<a href="Lesson0/index.html">Ir a Inicio</a>
