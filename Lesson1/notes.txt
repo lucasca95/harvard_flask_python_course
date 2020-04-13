@@ -43,3 +43,42 @@ Ejemplo con master...
 
 Git FORKS: copia de un repositorio completo y crea uno nuevo
 con el contenido de otro original.
+
+HTML5 introduce nuevas etiquetas: header, nav, main, footer, section, audio, video, datalist
+
+Las sudo class permiten modificar apariencia de los elementos HTML
+cuando ciertos eventos ocurren
+Los sudo elements permiten alterar pequeñas partes de un elemento
+
+Tipos de selectores CSS:
+    X, Y    -> cambios aplican para X y para Y 
+    X Y     -> cambios aplican para todo Y que tenga X como padre
+    X > Y   -> cambios aplican para todo Y que sea HIJO DIRECTO de X
+    X + Y   -> cambios afectan al primer Y que esté luego de X, si es que hay uno.
+    X ~ Y   -> cambios afectan a TODO Y que venga luego de un X
+    [X=Y]   -> cambios afectan a todo atributo X que tenga valor Y
+    X:Y     -> cambios afectan a las pseudocalses de los elementos html
+    X::Y    -> cambios afectan a los pseudoelementos de los elementos html
+
+    Responsive Design: refiere a cómo hacer que nuestra página se adapte a la pantalla
+    donde está siendo vista.
+
+    media-queries permiten aplicar reglas CSS dependiendo de las características de la pantalla del equipo
+    que esté abriendo la página.
+
+    SCSS es una extensión de css.
+    Usamos archivos .scss para definir variables al estilo php, es decir, usando $ antes del nombre 
+    de la variable
+    Necesitamos adaptar los archviso scss para que puedan ser leidos por un navegador como css.
+    Para hacer esto podemos usar el programa "sass" y ejecutar el comando
+    "sass archivo.scss archivo.css"
+    Cada vez que hagamos un cambio en un archivo .scss hay que recompilarlo
+    Esto deberia ser así a menos que hagamos un seguimiento entre dos archivos.
+    Lo haccemos con el comando: sass --watch archivo.scss:archivo.css
+
+    Los archivos SCSS permiten declarar selectores dentro de otros. Esto permite 
+    controlar mejor los cambios de vistas de cada elementos, diferenciando los que 
+    están dentro de otros.
+
+    Herencia en CSS
+    
