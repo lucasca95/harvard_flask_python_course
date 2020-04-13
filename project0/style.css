@@ -1,5 +1,13 @@
+:root{
+    --my_done_color: rgb(15, 141, 15);
+}
+
 #profile-picture{
     height: 150px;
+}
+.done{
+    background-color: var(--my_done_color);
+    color:white;
 }
 .data{
     font-size: 20px;
@@ -7,6 +15,11 @@
     border: 3px solid #002235;
     padding-left: 10px;
     padding-right: 10px;
+}
+@media screen and (min-width: 300px){
+    .data{
+        width: 250px;
+    }
 }
 a{
     color: crimson;
@@ -16,6 +29,14 @@ a{
 body{
     background-color: rgb(180, 180, 180);
 }
+div p{
+    color: rgb(24, 59, 3);
+}
+/* div{
+    h1{
+        color:blue;
+    }
+} */
 h1{
     font-size: 70px;
 }

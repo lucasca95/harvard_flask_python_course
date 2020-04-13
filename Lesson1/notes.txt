@@ -1,0 +1,45 @@
+Seguimos trabajando con Git.
+
+Branching en git: permite llevar al proyecto por distintos caminos
+Muy util cuando queremos implementar un new feature
+
+Merging prermite unir branches.
+
+El branch original es el MASTER.
+
+Para GIT el HEAD indica en qué rama estamos actualmente.
+Para movernos de rama podemos cambiar el HEAD de rama (branch) haciendo un
+vistazo (checkout)
+
+git branch -> muestra un listado de las ramas que tiene actualmente mi repositorio
+git branch <nombreNuevaRama> -> crea una nueva rama
+Cuando creamos una nueva rama ésta existe sólo de forma local. No 
+existirá en GitHub a menos que hagamos un PUSH
+
+git checkout <nomRama> -> mueve el HEAD (me posiciona) a otra rama
+
+git merge <nomRama> -> combina la rama indicada con la que estemos parados actualmente
+
+
+FUNCIONAMIENTO DEL GIT PULL (fetch + merge)
+Git Remotes: repositorios que no son locales
+Puede ocurrir que la rama MASTER de un repositorio esté más
+actualizada que la rama master local de mi PC. En ese caso 
+es útil ejecutar el comando "git fetch" para traer la cadena completa
+de la rama actual desde el repositorio remoto hasta mi pc y si queremos
+combinar nuestra rama con la del remoto corremos el comando 
+git merge origin/nom_rama
+Ejemplo con master...
+    remoto  --- **-**-**-**-**Master_r
+    local   --- **-**-Master_l
+    
+    git fetch
+    remoto  --- **-**-**-**-**Master_r
+    local   --- **-**-Master_l-**-**Master_r
+    
+    git merge origin/master
+    remoto  --- **-**-**-**-**Master_r
+    local   --- **-**-**-**-**Master_l
+
+Git FORKS: copia de un repositorio completo y crea uno nuevo
+con el contenido de otro original.
