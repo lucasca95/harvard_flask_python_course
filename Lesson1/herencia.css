@@ -1,0 +1,8 @@
+/* Clase padre CSS de la cual heredan propiedades los hijos */
+.success {
+  background-color: yellow; }
+
+.success {
+  color: blue; }
+
+/*# sourceMappingURL=herencia.css.map */
