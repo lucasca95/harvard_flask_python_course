@@ -1,0 +1,123 @@
+$my-padding: 10px;
+$my-margin: 1px;
+
+%blackborder{
+    border-width: 5px;
+    border-style: solid;
+    border-color: black;
+}
+
+#profile_img{
+    padding: $my-padding;
+    text-align: center;
+    img{
+        height: 300px;
+    }
+}
+.personal-data{
+    $my-margin:20px;
+    h3{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        margin-bottom: $my-margin;
+    }
+    p{
+        font-style: italic;
+        margin: 0px;
+        margin-left: $my-margin+10px;
+
+    }
+}
+
+body{
+    @extend %blackborder;
+    margin: $my-margin;
+}
+
+footer{
+    margin-bottom: 0px;
+    width: 100%;
+    height: 2.8rem;
+    font-size: 15px;
+}
+
+hr{
+    border-width: 5px;
+    border-style: inset;
+    border-radius: 100px;
+}
+
+main{
+    $title_color:white;
+    $paragraph_color: rgb(212, 223, 198);
+
+    h1 + p{
+        margin-top: $my-margin + 20px;
+    }
+    p{
+        margin: 3px;
+    }
+
+    ul{
+        li{    
+            $my-margin: 15px;
+            list-style-type: none;
+            margin: $my-margin;
+            section{
+                @extend %blackborder;
+                padding: $my-padding;
+                background-color: rgb(151, 52, 52);
+                width: 80%;
+                margin: auto;
+                
+                h3{
+                    color: $title_color;
+                }
+
+                h4{
+                    color: rgb(255, 254, 198);
+                }
+        
+                p{
+                    color:$paragraph_color;
+                }
+            }
+        }
+    }
+}
+
+table.table{
+    @extend %blackborder;
+    width: 80%;
+    margin: auto;
+
+    th{
+        @extend %blackborder;
+        border-color: rgb(197, 197, 197);
+    }
+    td{
+        @extend %blackborder;
+        vertical-align: middle;
+        img{
+            margin-left: 25%;
+            height: 20px;
+        }
+    }
+}
+
+
+nav{
+    @extend %blackborder;
+}
+
+@media (max-width: 480px){
+    h1{
+        font-size: 20px;
+    }
+    header{
+        nav.navbar{
+            span{
+                font-size: 100%;
+            }
+        }
+    }
+}
