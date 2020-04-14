@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AACA,8DAA8D;AAC9D,QAAQ;EACJ,gBAAgB,EAAE,MAAM;;AAG5B,QAAS;EAEL,KAAK,EAAE,IAAI",
-"sources": ["herencia.scss"],
-"names": [],
-"file": "herencia.css"
-}

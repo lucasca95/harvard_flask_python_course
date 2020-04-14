@@ -1,1 +1,0 @@
-<h1>Harvard Web Course</h1>
