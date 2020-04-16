@@ -49,3 +49,5 @@ CSS (Cascade Style Sheet) -> util para trabajar la apariencia de nuestro sitio w
 GitHub tiene una funcion llamada GitHubPages que permite publicar en la web un sitio que este alojado en un repo github.
 Para hacerlo debemos ir a nuestro repo, Settings y bajar hasta GitHub Pages.
 Ahi elegimos la rama para hacer el delploy (generalmente master)
+
+cambio innecesario
