@@ -1,1 +1,26 @@
 Empezamos con bases de datos.
+
+BDD relacionales -> guardar informacion en tablas.
+Cada fila representa un elemento y cada columna un atributo
+
+SQL: Structured Queries Language.
+Usamos PostgreSQL.
+
+DataTypes
+    INTEGER
+    DECIMAL
+    SERIAL -> integer autoincrementable / bastante particular de postgreSQL
+    VARCHAR -> strings
+    TIMESTAMP
+    BOOLEAN
+    ENUM
+    ...
+
+Crear una tabla
+    CREATE TABLE nombreTabla(
+        id SERIAL PRIMARY KEY,
+        attr1 dataType,
+        attr2 dataType,
+        attr3 dataType,
+        ...
+    );
