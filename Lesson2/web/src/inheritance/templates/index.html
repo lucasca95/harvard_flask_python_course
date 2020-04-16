@@ -1,0 +1,13 @@
+<!-- indicamos que hereda de layout.html -->
+{% extends "layout.html" %}
+
+{% block heading %}
+    First Page
+{% endblock %}
+
+{% block body %}
+    <p>
+        Lorem y anda a saber que dice
+    </p>
+    <a href="{{ url_for('more') }}">See more...</a>
+{% endblock %}

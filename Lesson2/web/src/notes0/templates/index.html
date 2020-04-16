@@ -1,0 +1,23 @@
+<!-- indicamos que hereda de layout.html -->
+{% extends "layout.html" %}
+
+{% block heading %}
+    First Page
+{% endblock %}
+
+{% block body %}
+
+    <ul>
+        {% for note in notes %}
+            <li>{{ note }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Redirigimos el formulario al metodo "hello" del index -->
+   <form action="{{ url_for('index') }}" method="post">
+        <!-- el valor del campo "name" sera el que entienda el servidor -->
+        <input type="text" name="note" placeholder="Enter your note">
+        <button>Add note!</button>
+   </form>
+
+{% endblock %}
