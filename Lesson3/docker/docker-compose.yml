@@ -1,0 +1,26 @@
+version: "3"
+services:
+    dbPostgres:
+        image: postgres
+        restart: always
+        ports:
+            - "5432:5432"
+        volumes:
+            - postgres_db_vol:/var/lib/postgresql/data
+        container_name: db_postgres
+        environment:
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: test
+
+    control:
+        restart: always
+        image: adminer
+        ports:
+            - "80:8080"
+        container_name: control
+        depends_on:
+            - dbPostgres
+        
+volumes:
+    postgres_db_vol:
