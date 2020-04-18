@@ -16,11 +16,146 @@ DataTypes
     ENUM
     ...
 
+Constraints
+Son modificadores de características de las columnas de una tabla
+    NOT NULL        -   Campo no puede ser vacío
+    UNIQUE          -   Valor unico de columna para toda la tabla
+    PRIMARY KEY     -   Campo identificador de cada registro de la tabla
+    DEFAULT         -   Valor por defecto en caso que no haya valor
+    CHECK           -   Usados para cumplir cierta condición
+    REFERENCES      -   Usado con claves foráneas. Referenciamos otra tabla.
+    ...
+
+SELECT functions:
+    AVG(nomCol)
+    COUNT(*)        -   Cuenta la cantidad de registros que tiene el resultado
+    MIN(nomCol)
+    MAX(nomCol)
+    SUM(nomCol)
+
+Usando condiciones con WHERE:
+    WHERE nomCol IN (valor1, valor2, ...)   -   devolver los registros cuyo campo nomCol sea alguno de los indicados en el conjunto de valores
+    WHERE nomCol LIKE 'unString'    -   devuelve los registros cuyas columnas cumplan con el patron indicado 
+                                        % es comodín
+
+Limitamos la cantidad de resultados con LIMIT
+SELECT * FROM nomTabla LIMIT 10;
+
+Ordenamos los resultados segun el valor de una columna
+SELECT * FROM nomTabla ORDER BY nomCol;
+
+Agrupamos resultados
+SELECT nomCol
+FROM nomTabla
+GROUP BY nomCol;    --  Debemos devolver en el SELECT toda columna por la que hayamos agrupado.
+
+Agrupamos resultados poniendo una condición
+SELECT nomCol, COUNT(*)
+FROM nomTabla
+GROUP BY nomCol
+HAVING (COUNT(*) > 1);    --  El HAVING es el WHERE una vez que usamos GROUP BY.
+
+
+Claves foráneas -> columna que relaciona una tabla con otra.
+
+Cruzar tablas con JOINS -> tomar tablas relacionadas y cruzarlas para obtener un resultado
+    SELECT nomCol
+    FROM nomTabla1 JOIN nomTabla2   --  JOIN es INNER JOIN. Cruza tablas si los campos tienen contenido
+    ON colTabla1 = colTabla2        --  las tablas tienen en comun las columnas colTabla1 y colTabla2
+    WHERE (condition);
+
+    LEFT/RIGHT JOIN  
+    Devuelve TODOS los registros de la tabla LEFT/RIGHT
+    aunque no hayan conseguido cruza con la otra tabla
+
+Uso de índices
+Funciona como los glosarios de un libro. Elegimos un valor del índice y vemos 
+todos los registros que coincidan con ese valor.
+Si bien trabajar con índices vuelve más rapida la búsqueda, al hacer una modificacion
+en la bdd hay que modificar la tabla en cuestión y el índice, además 
+de la cuestión de espacio.
+    CREATE INDEX
+
+
+TRABAJAR CON ESTRUCTURA DE TABLA 
+TRABAJAR CON ESTRUCTURA DE TABLA 
+TRABAJAR CON ESTRUCTURA DE TABLA 
+
 Crear una tabla
     CREATE TABLE nombreTabla(
-        id SERIAL PRIMARY KEY,
+        id SERIAL PRIMARY KEY AUTO_INCREMENT,
         attr1 dataType,
         attr2 dataType,
         attr3 dataType,
         ...
     );
+
+Eliminar una tabla 
+    DROP TABLE nombreTabla;
+
+TRABAJAR CON REGISTROS DE TABLA
+TRABAJAR CON REGISTROS DE TABLA
+TRABAJAR CON REGISTROS DE TABLA
+
+Insertar registros en una tabla
+    INSERT INTO nombreTabla(
+        nombre_col1,
+        nombre_col2,
+        nombre_col3,
+        ...
+    )VALUES(
+        valor_col1, --valores string van en comillas simples
+        valor_col2,
+        valor_col3,
+        ...
+    );
+
+Consultar a la base de datos con SELECT
+
+    SELECT *
+    FROM nomTabla;
+
+    SELECT *
+    FROM nomTabla
+    WHERE (condition);
+
+Actualizar registros de una tabla
+UPDATE nomTabla
+    SET nomCol = newValue
+    WHERE (condition);      --  si no hay condicion los cambios aplican a todos los registros de la tabla
+
+Eliminar registros de una tabla 
+DELETE FROM nomTabla 
+    WHERE (condition);      --  sin condicion se vacía la tabla
+
+
+---------------------------------------------
+SQL injection
+---------------------------------------------
+- user: usernameQueQuieroHackear
+- pass: 1' OR '1'='1
+
+Como programadores vamos a querer evitar que el input de un usuario
+se utilice en crudo en nuestro codigo.
+
+Race Conditions
+Si mucha gente quiere acceder a la BDD y hacer operaciones a la vez
+podríamos tener problemas.
+El problema ocurre cuando se nos meten operaciones en el medio de una más grande.
+
+Para solucionarlo existen las transacciones. Éstas permiten bloquear el acceso
+de la BDD para que otras operaciones no molesten.
+
+SQL Transactions
+    BEGIN -- bloquea la bdd
+    
+    COMMIT -- libera la bdd 
+
+SQLAlchemy es biblioteca Python que permite ejecutar comandos SQL desde Python
+SQLAlchemy funciona con PostgreSQL sólo si tenemos instalado el módulo psycopg2.
+
+Aprendemos sobre archivos .csv (Coma Separated Values)
+
+Nos quedamos en 1.39.21
+No podemos seguir probando porque nos falta construir la BDD con la que se hacen 
+las pruebas
