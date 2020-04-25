@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+{% endblock %}
+
+{% block body %}
+
+{% if message %}
+    {{ message }}
+{% endif %}
+
+<h3>"<em>{{book.book_title.capitalize()}}</em>"</h3>
+<h4>by 
+  {% for w in book.book_author.split() %}
+    {{w.capitalize()}}
+  {% endfor %}
+</h4>
+<h6>Published on {{book.book_year}}</h6>
+
+{% if (api_results) %}
+  <hr>
+  <h5>Goodreads API results</h5>
+  <p>Number of ratings: {{api_results['ratings_count']}} &nbsp;|&nbsp; Average rating: {{api_results['average_rating']}}</p>
+{% else %}
+  <hr>
+  <p>No data available from Goodreads API for this book.</p>
+{% endif %}
+
+{% if (can_make_review) %}
+  <hr>
+  <p>
+    Create a new review clicking <a href="{{ url_for('review_create', book_id=book.book_id) }}">here!</a>
+  </p>
+{% endif %}
+<hr>
+{% if not book_reviews %}
+  <p>
+    No reviews available for this book yet.
+  </p>  
+{% else %}
+<h3>Reviews</h3>
+<table class="table table-hover table-bordered table-light">
+  <caption>{{ book_reviews|length }} user review(s)</caption>
+  <thead class="thead-dark">
+    <tr>
+      <th style="width: 25%;" scope="col">User name</th>
+      <th style="width: 10%;" scope="col">Rating</th>
+      <th scope="col">Review</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in book_reviews %}
+    <tr>
+      <td class="bg-warning">
+        <div>
+          {{ r.user_fullname }}
+        </div>
+      </td>
+      <td>{{ r.review_rating }}</td>
+      <td>{{ r.review_content }}</td>
+    </tr>
+    <br>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block heading %}
+    Create a review
+{% endblock %}
+
+
+
+{% block body %}
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+<h4>for {{book.book_isbn}}, 
+    "<em>{{book.book_title.capitalize()}}</em>" by 
+    {% for w in book.book_author.split() %}
+        {{w.capitalize()}}
+    {% endfor %} 
+    ({{book.book_year}})</h4>
+<br>
+<form action="" method="post">
+    <div class="form-group">
+        <label for="review_rating_id">Rating</label>
+        <input name="book_id" value="{{book.book_id}}" hidden>
+        <select class="rating form-control" name="review_rating" list="rating_values" placeholder="Rating value" id="review_rating_id">
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3" selected>3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="review_content_id">Review comment</label>
+        <textarea class="form-control" name="review_content" id="review_content_id" rows="5" placeholder="Write your comment here" autofocus></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create review</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+$color0: rgb(236, 243, 245);
+$color1: rgba(216, 245, 229, 0.267);
+$color2: #336B87;
+$color3: #2A3132;
+$color4: #763626;
+
+%showBorders{
+    border-width: 3px;
+    border-style: solid;
+    border-color: white;
+}
+
+%test{
+    @extend %showBorders;
+    color: white;
+}
+
+body{
+    background-color: $color0;
+
+    main{
+        div.welcome_login{
+            // @extend %showBorders;
+            text-align: center;
+            @media (min-width: 767px) {
+                padding: 15%;
+            }
+            @media (max-width: 767px) {
+                padding: 1%;
+            }
+        }
+        form{
+            select.rating{
+                width: 30%;
+            }
+        }
+        
+        // div.fill_index{
+        //     // Permite mantener el footer abajo de la pantalla.
+        //     @media (min-width: 767px) {
+        //         height: 29rem;
+        //     }
+        //     @media (max-width: 767px) {
+        //         height: 14.2rem;
+        //     }
+        // }
+        // div.fill_login{
+        //     // Permite mantener el footer abajo de la pantalla.
+        //     @media (min-width: 767px) {
+        //         height: 23rem;
+        //     }
+        //     @media (max-width: 767px) {
+        //         height: 14.2rem;
+        //     }
+        // }
+    }
+
+    div.fill-space{
+        height: 3rem;
+    }
+
+    footer{
+        position: fixed;
+        bottom: 0rem;
+        width: 100%;
+    }
+}
+    

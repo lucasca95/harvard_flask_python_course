@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+Register
+{% endblock %}
+
+{% block body %}
+{% if message %}
+    <hr>
+    {{ message }}
+    <hr>
+{% endif %}
+
+<form action="#" method="POST">
+    <div class="form-group">
+        <label for="user_name_id">Full name *</label>
+        <input type="text" class="form-control" id="user_name_id" name="user_fullname">
+    </div>
+    <div class="form-group">
+        <label for="user_email_id">Email *</label>
+        <input type="email" class="form-control" id="user_email_id" name="user_email" aria-describedby="user_email_help_id">
+        <small id="user_email_help_id" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="user_password_id">Password *</label>
+        <input type="password" class="form-control" name="user_password" id="user_password_id" aria-describedby="user_password_help_id">
+        <small id="user_password_help_id" class="form-text text-muted">We'll never share your password neither.</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Access</button>
+</form>
+{% endblock %}

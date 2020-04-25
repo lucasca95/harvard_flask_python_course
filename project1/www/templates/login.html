@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+Login
+{% endblock %}
+
+{% block body %}
+
+{% if message %}
+    <hr>
+    <h5>{{message}}</h5>
+    <hr>
+{% endif %}
+
+<form action="/login" method="POST">
+    <div class="form-row">
+        <div class="col-md-6">
+            <div class="welcome_login">
+                <h3>Welcome!</h3>
+                <br>
+                <p>Don't have an account?</p>
+                <a class="btn btn-warning" href="{{url_for('register')}}">Register here</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <br>
+            <div class="form-group">
+                <label for="user_email_id">Email</label>
+                <input type="email" class="form-control" id="user_email_id" name="user_email">
+            </div>
+            <div class="form-group">
+                <label for="user_password_id">Password</label>
+                <input type="password" class="form-control" name="user_password" id="user_password_id">
+            </div>
+            <button type="submit" class="btn btn-warning">Log in!</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

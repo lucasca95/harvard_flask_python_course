@@ -1,0 +1,20 @@
+body {
+  background-color: #ecf3f5; }
+  body main div.welcome_login {
+    text-align: center; }
+    @media (min-width: 767px) {
+      body main div.welcome_login {
+        padding: 15%; } }
+    @media (max-width: 767px) {
+      body main div.welcome_login {
+        padding: 1%; } }
+  body main form select.rating {
+    width: 30%; }
+  body div.fill-space {
+    height: 3rem; }
+  body footer {
+    position: fixed;
+    bottom: 0rem;
+    width: 100%; }
+
+/*# sourceMappingURL=mystyles.css.map */

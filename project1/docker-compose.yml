@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+
+    web:
+        build: . #el punto indica que el Dockerfile está en el directorio de docker-compose.yml
+        restart: always
+        container_name: course_web
+        ports:
+            - "8888:3333"
+        volumes:
+            # Linkear la carpeta www del host con la carpeta www dentro del contenedor
+            - "./www/:/www/"
+
+    control:
+        restart: always
+        image: adminer
+        ports:
+            - "80:8080"
+        container_name: course_contol

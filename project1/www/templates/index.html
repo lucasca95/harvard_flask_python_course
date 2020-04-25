@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+Book finder
+{% endblock %}
+
+{% block body %}
+{% if message %}
+  {{ message }} for {{ target }}
+{% endif %}
+
+<hr>
+<h3>Search a book</h3>
+<br>
+
+<form action="/", method="POST">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="book_isbn_id">ISBN</label>
+        <input class="form-control mr-sm-2" autocomplete="off" type="search" id="book_isbn_id" name="book_isbn" placeholder="Search by ISBN">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="book_title_id">Title</label>
+        <input class="form-control mr-sm-2" autocomplete="off" type="search" id="book_title_id" name="book_title" placeholder="Search by title">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="book_author_id">Author</label>
+        <input class="form-control mr-sm-2" autocomplete="off" type="search" id="book_author_id" name="book_author" placeholder="Search by author">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Search</button>
+  </form>
+
+  {% if books %}
+  <br><br><br>
+  <table class="table">
+    <thead class="thead-light">
+      <h4>Book results</h4>
+      <tr>
+        <th scope="col-md-3">ISBN</th>
+        <th scope="col-md-4">Title</th>
+        <th scope="col-md-4">Author</th>
+        <th scope="col-md-1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for b in books %}
+      <tr>
+        <td>
+          {{b.book_isbn.capitalize()}}
+        </td>
+        <td>
+          {{b.book_title.capitalize()}}
+        </td>
+        <td>
+          {% for w in b.book_author.split() %}
+            {{w.capitalize()}}
+          {% endfor %}
+        </td>
+        <td>
+          <a href="{{ url_for('book', book_id=b.book_id) }}">View details</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+{% endblock %}

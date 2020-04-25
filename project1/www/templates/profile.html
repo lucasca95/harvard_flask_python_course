@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+{{ user.user_fullname }} profile
+{% endblock %}
+
+{% block body %}
+<hr>
+<h4>
+    User level: 
+    {% if user.user_level == 0 %}
+        "Administrator"
+    {% endif %}
+</h4>
+<h4>User email: {{ user.user_email }} </h4>
+
+{% endblock %}
