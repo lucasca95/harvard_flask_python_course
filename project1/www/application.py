@@ -116,13 +116,9 @@ def logout():
     # session.pop('user_email')
     return redirect(url_for('index'))
 
-@app.route("/register", methods=["GET", "POST"])
+@app.route("/register/", methods=["GET", "POST"])
 def register():
-    print(f'\n\nIngresamos a "register" por {request.method}\n')
-
-    if user_not_logged():
-        # No hay usuario logueado
-        return render_template("login.html", message="")
+    print(f'\n\nIngresamos a "register" por {request.method}\n', file=sys.stderr)
 
     if request.method == "GET":
         return render_template("register.html", message="")
