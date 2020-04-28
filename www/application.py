@@ -120,10 +120,6 @@ def logout():
 def register():
     print(f'\n\nIngresamos a "register" por {request.method}\n')
 
-    if user_not_logged():
-        # No hay usuario logueado
-        return render_template("login.html", message="")
-
     if request.method == "GET":
         return render_template("register.html", message="")
     elif request.method == "POST":
