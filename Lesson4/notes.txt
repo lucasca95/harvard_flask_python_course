@@ -28,4 +28,4 @@ En una aplicacion, los modelos seran nuestro nexo que conecte los datos de la ap
 Con flask_sqlalchemy podemos crear nuestra BDD a partir de las clases existentes en un archivo 'models.py', por ejemplo
 con la linea 'db.create_all()'
 
-Nos quedamos en min 32.
+Nos quedamos en min 42.
