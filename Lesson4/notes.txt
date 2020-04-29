@@ -1,0 +1,8 @@
+Esta clase trata de mejoras en el manejo de datos tomando lo mejor que tiene que ofrecer Python
+
+Hasta ahora hemos usado SQL para realizar consultas a una base de datos.
+Vamos a comenzar a tomar ventajas de Python para manejar datos de nuestra BDD sin escribir código SQL crudo.
+
+POO -> Programación orientada a objetos
+Un "objeto" es la representación de alguna cosa de la vida real.
+
