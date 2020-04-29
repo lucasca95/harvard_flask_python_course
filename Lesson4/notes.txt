@@ -28,4 +28,116 @@ En una aplicacion, los modelos seran nuestro nexo que conecte los datos de la ap
 Con flask_sqlalchemy podemos crear nuestra BDD a partir de las clases existentes en un archivo 'models.py', por ejemplo
 con la linea 'db.create_all()'
 
-Nos quedamos en min 42.
+Algunas queries utiles:
+    Flight.query.filter_by(origin='Paris').count()
+    Flight.query.filter_by(origin='Paris').first()
+    Flight.query.filter_by(origin='Paris').all()
+    
+    # devuelve el objeto con el id indicado o None
+    Flight.query.get(id)
+
+Actualizar el valor de un registro
+    flight = Flight.query.get(2)
+    flight.origin = 'Argentina'
+
+Borrar un registro
+    flight = Flight.query.get(2)
+    db.session.delete(flight)
+
+Ordenar resultados
+    Flight.query.order_by(Flight.origin).all()
+    Flight.query.order_by(Flight.origin.desc()).all()
+
+Devolver los registros que cumplan una condicion
+    Flight.query.filter(condicion).all()
+
+Devolver los registros que cumplan con un patron de palabra
+    Flight.query.like("%patron%").all()
+
+Devolver simulando un WHERE col IN ()
+    Flight.query.filter(
+        Flight.origin.in_(
+            ['Tokyo', 'Paris'])).all()
+
+Anidar expresiones booleanas en una consulta
+    Flight.query.filter(
+        or_(
+            cond1,
+            cond2
+        )).all()
+    
+    Flight.query.filter(
+        and_(
+            cond1,
+            cond2
+        )).all()
+
+Simular un JOIN
+    db.session.query(Flight, Passenger).filter(
+        Flight.id == Passenger.flight_id
+        ).all()
+
+
+La ventaja de usar el ORM es que ahora disponemos de clases
+para trabajar nuestros datos. Esto permite evitar escribir codigo sql crudo, ademas
+de modularizar comportamiento de los objetos.
+
+Los modelos Python pueden incorporar relaciones que no se manifiestan en la base de datos.
+Estas relaciones viven solo en codigo python y conectan tablas.
+    Class Flight:
+        ...
+        # todo los objetos "flight" acceden a su lista de pasajeros con ".passengers"
+        # y todo objeto Passenger accede a su Flight con ".flight"
+        # el atributo lazy indica que no queremos que la informacion se cargue hasta no ser requerida
+        passenger = db.relationship("Passenger", backref="flight", lazy=True)
+
+
+APIs
+Podemos entender a las APIs como protocolos que mantienen las aplicaciones que permiten interactuar entre si para
+por ejemplo enviar o recibir informacion. Es la interfaz que una aplicacion tiene para funcionar con otros.
+Muchas veces una API entiende que es lo que el usuario quiere por meido del metodo por el que se accede a una url
+    GET: tomar un recurso
+    POST: crear un nuevo recurso
+    PUT: reemplazar un recurso 
+    PATCH: actualizar un recurso 
+    DELETE: borrar un recurso
+
+Muchas veces tenemos restringido el acceso a una api por meido de una API Key.
+Esto se hace para no saturar la api. Ademas, por medio de un a key podemos controlar que informacion
+retornarle a un usuario dado al acceder a la api.
+
+Con el modulo "requests" podemos hacer distintos tipos de requests en python con cada tipo de metodo.
+request.text() devuelve el contenido de texto plano de un sitio.
+requests.get(), requests.post()
+
+Si tenemos que hacer un request con parametros y sabemos sus nombres, les ponemos valores asi:
+    res = requests.get('url', params={'param1': valor1, 'param2': valor2})
+
+Algunos status codes:
+ 200 OK
+ 201 Created 
+ 400 Bad request
+ 403 Forbidden 
+ 404 Not found 
+ 405 Method not allowed 
+ 422 Unprocessable entity
+
+Usamos JSON para dar informacion por medio de una API.
+JSON permite manejar informacion con el formato estandar 'key': value
+Transformamos una respuesta a json asi 
+    res = requests.get('url')
+    data = res.json()
+
+    dato = data['key1']['key2']
+    esto funciona si la estructura da
+        {
+            'key1'{
+                'key2': value
+            }
+        }
+
+fixer.io permite conocer los valores actuales de conversion de monedas por medio de una API.
+
+
+
+Nos quedamos en min 1.29.00.
