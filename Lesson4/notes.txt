@@ -6,3 +6,26 @@ Vamos a comenzar a tomar ventajas de Python para manejar datos de nuestra BDD si
 POO -> Programación orientada a objetos
 Un "objeto" es la representación de alguna cosa de la vida real.
 
+Aprendemos que el constructor de un objeto en Python es el metodo __init__
+
+Tecnicamente podemos crear un objeto sin __init__ pero no es buena practica.
+Tambien notamos que la propiedad self no tiene por qué llamarse así pero se toma "self" como convención.
+Lo que no es convencion y debe respetarse para que funcione es que "self", es decir, la referencia
+al objeto mismo, debe ir primero como parametro.
+
+Lo bueno de implementar metodos en los objetos es que uno no se debe preocupar por 
+como se hace la accion sino que se hace.
+
+Podemos tener propiedades en un objeto que sean propias de él, las cuales definimos dentro del __init__
+o podemos tener propiedades compartidas entre todos los objetos de la Clase, las cuales van 
+definidas al inicio de la clase, fuera de todos los metodos.
+
+
+Object-Relational Mapping (ORM)
+Vamos a usar Flask-SQLAlchemy para ser nuestro ORM
+
+En una aplicacion, los modelos seran nuestro nexo que conecte los datos de la app con la base de datos.
+Con flask_sqlalchemy podemos crear nuestra BDD a partir de las clases existentes en un archivo 'models.py', por ejemplo
+con la linea 'db.create_all()'
+
+Nos quedamos en min 32.
