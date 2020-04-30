@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // primer parametro, el evento 
+        // segundo parametro, el nombre de la funcion a ejecutar
+        document.addEventListener('DOMContentLoaded', function(){
+            // asignar comportamiento al primer boton de la pagina
+            document.querySelector('button').onclick = count;
+        });
+
+        let counter = 0;
+
+        function count(){
+            counter++;
+            document.querySelector('#counter').innerHTML = counter;
+            if (counter % 10 === 0){
+                // Estas comillas especiales permiten formatear un texto. Propio de ES6.
+                alert(`Counter is at ${counter}!`);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 id='counter'>0</h1>
+    <!-- El elemento boton -->
+    <button>ADD</button>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let counter = 0;
+        function count(){
+            counter++;
+            document.querySelector('#counter').innerHTML = counter;
+
+            if (counter % 10 === 0){
+                // Estas comillas especiales permiten formatear un texto
+                alert(`Counter is at ${counter}!`);
+            };
+        }
+        function countLess(){
+            counter--;
+            document.querySelector('#counter').innerHTML = counter;
+        }
+        function countReset(){
+            counter = 0;
+            document.querySelector('#counter').innerHTML = counter;
+        }
+    </script>
+</head>
+<body>
+    <h1 id='counter'>0</h1>
+    <!-- Evento Click para un boton -->
+    <button onclick="count()">+</button>
+    <button onclick="countLess()">-</button>
+    <button onclick="countReset()">RESET</button>
+</body>
+</html>

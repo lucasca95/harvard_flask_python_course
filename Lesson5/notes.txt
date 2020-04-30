@@ -1,0 +1,76 @@
+El servidor es la máquina donde corre la aplicación web. (en realidad es el programa que atienede los pedidos del usuario)
+El cliente es quien se conecta al servidor para interactuar con la app.
+
+Una pregunta que puede surgirnos es: donde se esta ejecutando el codigo de nuestra aplicacion? en el cliente o en el servidor?
+
+Hasta ahora todo lo escrito ha estado funcionando del lado del servidor.
+
+Ahora aprendemos codigo que corre en el navegador del cliente y no en el servidor.
+Por que quisieramos tener codigo que corra en el cliente y no en el server?
+ 1) Xq queremos bajar la demanda, la carga, del servidor.
+ 2) Xq el resultado de una operacion podria ser mucho mas rapido.
+
+Para eso existe JavaScript.
+Con JavaScript haremos trabajo de computo sin recurrir, en general, al servidor.
+
+Cada navegador es un mundo en cuanto al entendimiento de JavaScript por lo que se recurre a la adopcion de estandares,
+que no son mas que reglas en las que todos nos ponemos de acuerdo sobre versiones de javascript que todo navegador 
+debe entender por igual.
+Hoy en dia el estandar mas popular es el "ES6"
+
+Si el JS va en una pagina web, el codigo se ubica dentro del tag "script".
+Las lineas de codigo JS terminan con punto y coma ';'
+
+Generalmente no queremos que nuestro codigo JS corra al entrar a una pagina sino que 
+queremos que corra cuando algo sucede. Este "algo" se llama "EVENTO".
+
+En JS definimos funciones asi
+    function nombre_funcion() {
+        // codigo
+    }
+
+La ejecucion de codigo JS generalmente debe responder a eventos. Estos pueden ser:
+    - onclick
+    - onmouseover
+    - onkeydown
+    - onkeyup
+    - onload -- cuando la pagina carga completamente
+    - onblur -- cuando un elemento pierde el foco
+    - ...
+
+Empezamos a usar la info que tenemos en el DOM, es decir el 
+Document Object Model, el contenido de la pagina para manipular los elementos mediante JS.
+
+Queries dentro del documento HTML.
+document representa la pagina html completa.
+el metodo document.querySelector('selectorCSS') permite buscar el primer selector CSS pasado como parametro por toda la pagina.
+Un elemento HTML tiene la propiedad innerHTML, la cual contiene todo el contenido del tag.
+Otros ejemplos de selectores CSS son:
+    document.querySelctor('tag')
+    document.querySelctor('#id')
+    document.querySelctor('.class')
+
+
+Variables en JS. Hay MUCHAS formas de definir variables.
+    const, let, var.
+    
+    const   ->  no puede cambiar su valor.
+    let     ->  variable que no existe fuera del bloque donde fue declarada.
+    var     ->  vive en toda la funcion donde fue declarada.
+
+    let nom_variable = valor;
+
+
+Comparar valores en JS 
+    === permite comparar total exactitud
+
+Agregar escuchas de eventos (EventListener) al documento 
+    document.addEventListener('nomEvento', function(){
+        document.querySelector('button').onclick = count;
+    });
+Uno puede ser el DOMContentLoaded. El evento representa la carga completa de la pagina. Cuando la pagina carga, hacer...
+
+El codigo JS puede separarse de un archivo HTML.
+
+
+Nos quedamos en min 36.
