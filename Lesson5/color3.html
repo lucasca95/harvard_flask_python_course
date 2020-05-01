@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // No funciona el Array Function en este caso porque el 
+            // 'this' va a entender que valor tomar si usamos la declaracion formal de funciones
+            document.querySelector('#color-change').onchange = function(){
+                // En este caso 'this' refiere al valor con el que se llamo a la funcion
+                document.querySelector('h1').style.color = this.value;
+            };
+        });
+    </script>
+</head>
+<body>
+    <h1>Hello!</h1>
+    <select id="color-change">
+        <option value="black">Black</option>
+        <option value="red">Red</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+    </select>
+</body>
+</html>

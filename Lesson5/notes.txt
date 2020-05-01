@@ -81,4 +81,18 @@ Podemos usar JS para cambiar el estilo de un elemento HTML, como se ve en 'color
 Aprendemos que un elemento HTML tiene un atributo data que puede contener informacion que nos sea util para usar en nuestra pagina.
 Tal cual se ve en 'color1.html'
 
-Nos quedamos en min 53.
+En JS es muy comun el uso de funciones y el poder pasarlas como parametro,
+por lo que en ES6 se adapta su uso. En ES6 tenemos arrow notation sintax.
+Un Arrow Function que no recibe parametros tiene esta pinta
+    () => {
+        alert('Hello, world!');
+    }
+Este codigo implica tomar () y ejecutar => {...}
+Un Arrow Function que recibe "x" como parametro tiene esta pinta
+    x => {
+        alert(x);
+    }
+    x => x * 2;
+
+
+Nos quedamos en min 1.01.40.
