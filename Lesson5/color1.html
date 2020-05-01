@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            // querySelectorAll devuelve un arreglo de todos los elementos que cumplan 
+            // con el selector css pedido
+            document.querySelectorAll('.btn_color').forEach(
+                // Para cada elemento que contenga el arreglo
+                // La funcion que se ejecute para cada elemento debe recibir como parametro
+                // un elemento de ese arreglo
+                function(button){
+                    button.onclick = function(){
+                        // button.dataset.color permite acceder al atributo data-color de un boton
+                        document.querySelector('h1').style.color = button.dataset.color;
+                    };
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+    <h1>Hello!</h1>
+    <button class="btn_color" data-color="red">Red</button>
+    <button class="btn_color" data-color="blue">Blue</button>
+    <button class="btn_color" data-color="green">Green</button>
+</body>
+</html>

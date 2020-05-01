@@ -72,5 +72,13 @@ Uno puede ser el DOMContentLoaded. El evento representa la carga completa de la 
 
 El codigo JS puede separarse de un archivo HTML.
 
+Si usamos JS podemos valernos de la consola interna al navedaror en el apartado "Console"
 
-Nos quedamos en min 36.
+La consola del navegador permite ejecutar codigo JS como si fuese una linea de comando
+
+Podemos usar JS para cambiar el estilo de un elemento HTML, como se ve en 'color0.html'
+
+Aprendemos que un elemento HTML tiene un atributo data que puede contener informacion que nos sea util para usar en nuestra pagina.
+Tal cual se ve en 'color1.html'
+
+Nos quedamos en min 53.

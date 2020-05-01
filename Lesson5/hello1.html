@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <script>
+        document.addEventListener(
+            'DOMContentLoaded',
+            function(){
+                document.querySelector(`#form_id`).onsubmit = function(){
+                    const user_name = document.querySelector(`#user_name_id`).value;
+                    alert(`Hello ${user_name}!`);
+                };
+            });
+    </script>
+</head>
+<body>
+    <form action="" id='form_id' method="post">
+        <input type="text" placeholder="User name" autocomplete="off" id='user_name_id' name="user_name" id="">
+        <input type="submit" value="Submit!">
+    </form>
+    <form action="#" method='post'>
+
+    </form>
+</body>
+</html>

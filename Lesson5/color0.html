@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+
+            // Este ejemplo funciona pero repite mucho codigo que podria utilizarse de una forma 
+            // mas modular
+            document.querySelector('#btn_red_id').onclick = function(){
+                document.querySelector('h1').style.color = 'red';
+            };
+            document.querySelector('#btn_blue_id').onclick = function(){
+                document.querySelector('h1').style.color = 'blue';
+            };
+            document.querySelector('#btn_green_id').onclick = function(){
+                document.querySelector('h1').style.color = 'green';
+            };
+        });
+    </script>
+</head>
+<body>
+    <h1>Hello!</h1>
+    <button id="btn_red_id">Red</button>
+    <button id="btn_blue_id">Blue</button>
+    <button id="btn_green_id">Green</button>
+</body>
+</html>
