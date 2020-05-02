@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            document.querySelector('#new-task').onsubmit = () => {
+
+                // crear item para la lista
+                const new_li = document.createElement('li');
+                new_li.innerHTML = document.querySelector('#task_id').value;
+
+                // agregar el item a la lista mediante la PROPIEDAD APPEND
+                document.querySelector('#tasks').append(new_li);
+
+                // limpiar el campo input
+                document.querySelector('#task_id').value = '';
+
+                // impedir que el form se envie y recargue la pagina
+                // cuando uso return false quiero quedarme en la misma pag
+                return false;
+            };
+        });
+    </script>
+</head>
+<body>
+    <h1>Tasks</h1>
+    <form id='new-task' action="" method="post">
+        <input id="task_id" autofocus autocomplete="off" placeholder="New Task" type="text">
+        <input type="submit" value="Submit">
+    </form>
+    <!-- Lista vacia que debera llenarse de tareas -->
+    <ul id="tasks">
+    </ul>
+</body>
+</html>

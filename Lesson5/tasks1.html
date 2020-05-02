@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('#form');
+            const txt = document.querySelector('#task');
+            const btn = document.querySelector('#submit');
+            const list = document.querySelector('#tasks');
+            
+            btn.disabled = true;
+            
+            txt.onkeyup = () => {
+                if (txt.value.length > 0) {
+                    btn.disabled = false;
+                } else {
+                    btn.disabled = true;    
+                }
+            }
+
+            form.onsubmit = () => {
+                const li = document.createElement('li');
+                li.innerHTML = txt.value;
+
+                list.append(li);
+
+                txt.value = '';
+                btn.disabled = true;
+
+                // impedir que se mande el form
+                return false;
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Tasks</h1>
+    <form id='form' action="" method="post">
+        <input id="task" autofocus autocomplete="off" placeholder="New Task" type="text">
+        <input id="submit" type="submit" value="Submit">
+    </form>
+    <!-- Lista vacia que debera llenarse de tareas -->
+    <ul id="tasks">
+    </ul>
+</body>
+</html>

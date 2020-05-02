@@ -95,4 +95,35 @@ Un Arrow Function que recibe "x" como parametro tiene esta pinta
     x => x * 2;
 
 
-Nos quedamos en min 1.01.40.
+Los elementos HTML cuando son usados con JS tienen propiedades que pueden 
+ser usadas para manipular el DOM. 
+En el ejemplo 'tasks0.html' podemos ver como se usa la propiedad append 
+para agregar un elemento <li> al elemento <ul>
+
+jQuery es libreria JS que permite manipular el DOM.
+JS permite tener una performance similar a jQuery mediante el uso 
+de querySelector y querySelectorAll.
+jQuery añade complejidad por lo que resulta en más demora al cargar.
+
+mediante la funcion 'setInterval' podemos ejecutar una funcion propia cada cierto tiempo.
+    setInterval(nomFuncion, milisegundos)
+
+JS permite almacenar informacion en la pc porque tiene LOCAL STORAGE.
+El elemento localStorage permite guardar informacion con el formato
+    localStorage.setItem('key', value);
+y recuperarla con 
+    localStorage.getItem('key');
+
+Las keys del localStorage se almacenan segun el nombre de domino, por lo que se evita
+pisar valores de igual clave para distintos sitios web.
+Por esto hay que tener cuidado si usamos localStorage con igual nombre
+de claves en dos paginas distintas pero en el mismo dominio, como por ejemplo la casa de uno.
+
+Se introduce AJAX, que significa Asincronic Javascript And XML.
+Es algo que nos permite pedir informacion a un servidor sin tener que recargar la pagina
+completa.
+
+Una de las formas de usas AJAX es enviar informacion al servidor por medio de un formulario
+y recibir un objeto JSON por parte del server.
+
+Nos quedamos en min 1.30.00.
