@@ -126,4 +126,13 @@ completa.
 Una de las formas de usas AJAX es enviar informacion al servidor por medio de un formulario
 y recibir un objeto JSON por parte del server.
 
+Se introducen los WEB SOCKETS
+Cuando hablamos de comunicacion cliente-servidor, el servidor responde a cada pedido del cliente.
+Si no hay pedidos no hay respuestas.
+En una aplicacion de chat, por ejemplo, nosotros quisieramos no tener que actualizar la
+pagina para ver nuevos mensajes, nos gustaria que la actualizacion fuese en tiempo real (full-duplex comunication)
+Socket.IO es biblioteca JS que permite hacer esto.
+
+
+
 Nos quedamos en min 1.30.00.
