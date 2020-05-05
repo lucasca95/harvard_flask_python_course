@@ -135,5 +135,6 @@ Socket.IO es biblioteca JS que permite hacer esto.
     from flask_socketio import SocketIO, emit
 Ej hecho en vote0.py | index_vote0.js
 
-
-Nos quedamos en min 1.30.00.
+Siempre que querramos almacenar informacion en comun de varias computadoras tendremos 
+que definir variables en el servidor, fuera de todos los metodos Python. A la par de la definicion 
+del objeto 'app'.
