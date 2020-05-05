@@ -132,7 +132,8 @@ Si no hay pedidos no hay respuestas.
 En una aplicacion de chat, por ejemplo, nosotros quisieramos no tener que actualizar la
 pagina para ver nuevos mensajes, nos gustaria que la actualizacion fuese en tiempo real (full-duplex comunication)
 Socket.IO es biblioteca JS que permite hacer esto.
-
+    from flask_socketio import SocketIO, emit
+Ej hecho en vote0.py | index_vote0.js
 
 
 Nos quedamos en min 1.30.00.

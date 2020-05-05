@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My web</title>
     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
-    <script src="{{ url_for('static', filename='js/index_vote0.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index_vote1.js') }}"></script>
 </head>
 <body>
-    <ul id='votes'>
-
-    </ul>
+    <div>Yes votes: <span id="yes">{{ votes['yes']}}</span></div>
+    <div>No votes: <span id="no">{{ votes['no']}}</span></div>
+    <div>Maybe votes: <span id="maybe">{{ votes['maybe']}}</span></div>
     <hr>
     <button data-vote='yes'>Yes</button>
     <button data-vote='no'>No</button>
