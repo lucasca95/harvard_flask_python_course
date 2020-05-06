@@ -1,0 +1,35 @@
+En Lesson 5...
+    Trabajmos en el diseño de aplicaciones web usando Python y Flask, y aprendimos
+    un poco de JavaScript, lenguaje utilizado para correr código dentro de nuestro navegador, en 
+    el lado del cliente, con el objeto de hacer tareas más dinámicamente e interfaces interactivas.
+
+En Lesson6 vamos a seguir con esa corriente: hacer apps dinámicas.
+
+Single-Page Apps
+    El concepto trata sobre tomar contenido que usualmente ubiese estado en diferentes páginas o, digamos, 
+    distintas rutas Flask y en donde la página va a hacer un pedido de información al servidor dependiendo
+    de lo que necesite mostrar en pantalla.
+    Una de las tecnologías que vimos en Lesson5 fue AJAX, que permitía de forma asíncrona hacer requests
+    al servidor cuando necesitabamos mostrar más información en nuestra página.
+    El objetivo las single-page apps va orientado a eso.
+
+En multipage/ tenemos una app flask multipagina. Debemos cambiar de pagina si queremos ver nuevo contenido.
+
+En singlepage/ logramos el mismo comportamiento con una unica pagina y tres metodos para mostrar tres comportamientos distintos.
+Usamos AJAX para tener funciones dinamicas de carga.
+
+Cuales serian los beneficios de tener una unica pagina en vez de muchas?
+    -No tenemos que recargar la pagina!
+    -Si tuvieramos mucho contenido no necesitariamos recargar todo sino solamente lo que debe 
+    actualizarse.
+
+Desventajas?
+    -En un ambiente multipagina la url cambia mientras que la url permanece igual 
+    y el usuario puede necesitar saber donde esta mientras navega por un sitio web.
+
+Como podemos simular ese cambio de url sin que la pagina deba recargarse completamente?
+    En HTML5 tenemos lo que se llama HTML5 History API. Es una funcionalidad de HTML que nos permite
+    conocer el historial del navegador y actualizar la URL para mostrar lo que quiero.
+    La forma de conseguirlo es hacer un PUSH del estado de la URL al historial del navegador.
+
+Nos quedamos en min 16.

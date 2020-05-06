@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+</head>
+<body>
+    <header>
+        <hr>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('first') }}">First</a></li>
+                <li><a href="{{ url_for('second') }}">Second</a></li>
+                <li><a href="{{ url_for('third') }}">Third</a></li>
+            </ul>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        {% block header %}{% endblock %}
+        {% block body %}{% endblock %}
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

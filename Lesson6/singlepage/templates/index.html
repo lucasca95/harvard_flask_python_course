@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Mandar a mostrar la primer pagina
+            load_page('first');
+
+            // darle comportamiento a los links cuando sean clickeados
+            document.querySelectorAll('.nav-link').forEach(elem => {
+                elem.onclick = () => {
+                    load_page(elem.dataset.page)
+                    return false;
+                }
+            });
+
+        });
+        
+        function load_page(name){
+            // indicamos que vamos a hacer un request
+            const request = new XMLHttpRequest();
+
+            // Se hace el request
+            request.open('GET', `/${name}`);
+
+            // Al recibir la respuesta del request
+            request.onload = () => {
+                const response = request.responseText;
+                document.querySelector('main').innerHTML = response;
+            };
+            request.send();
+        }
+        
+    </script>
+</head>
+<body>
+    <header>
+        <hr>
+        <nav>
+            <ul id="nav">
+                <li><a href="" class="nav-link" data-page='first'>First</a></li>
+                <li><a href="" class="nav-link" data-page='second'>Second</a></li>
+                <li><a href="" class="nav-link" data-page='third'>Third</a></li>
+            </ul>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
