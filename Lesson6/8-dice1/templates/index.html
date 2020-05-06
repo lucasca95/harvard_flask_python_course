@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    
+    <!-- tipo de archivo definido por handlebars -->
+    <script id='result' type="text/x-handlebars-template">
+        <li>
+            You rolled:
+            <br>
+            &nbsp;&nbsp;&nbsp;
+            {{ value }}
+        </li>
+    </script>
+    <script>
+        // Le indicamos a Handlebars mediante un id el script que tiene compilar
+        // para usar como template
+        const template = Handlebars.compile(document.querySelector('#result').innerHTML);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('#roll').onclick = () => {
+                const roll = Math.floor((Math.random()*6)+1);
+                // cargar el template con el valor del dado y usarlo para crear un contenido
+                const content = template({ 'value': roll });
+                document.querySelector('#rolls').innerHTML += content;
+            };
+        });
+    </script>
+</head>
+<body>
+    <button id="roll">Roll</button>
+    <ul id="rolls">
+    </ul>
+</body>
+</html>

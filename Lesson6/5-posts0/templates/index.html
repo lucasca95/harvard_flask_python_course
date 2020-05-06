@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <script>
+        let counter = 1;
+
+        const quantity = 10;
+
+        // primer llamado a la funcion load()
+        document.addEventListener('DOMContentLoaded', load);
+
+        window.onscroll = () => {
+            if(window.innerHeight + window.scrollY >= document.body.offsetHeight){
+                load();
+            }
+        };
+
+        function load(){
+            const start = counter;
+            const end = start + quantity -1;
+            counter = end + 1;
+
+            const request = new XMLHttpRequest();
+            request.open('POST', '/posts');
+            request.onload = () => {
+                const data = JSON.parse(request.responseText);
+                // Aplicamos la funcion add_post a cada elemento que llego como dato
+                data.forEach(add_post);
+            };
+
+            // Creamos un objeto data que simula un formulario 
+            // y le metemos los datos
+            const data = new FormData();
+            data.append('start', start);
+            data.append('end', end)
+            // enviamos los datos al servidor
+            request.send(data);
+        }
+        function add_post(contenido){
+            const post = document.createElement('div');
+            post.className = 'post';
+            post.innerHTML = contenido;
+            // Agregar el nuevo div dentro del contenedor para #posts
+            document.querySelector('#posts').append(post);
+        }
+    </script>
+</head>
+<body>
+    <div id="posts">
+    </div>
+</body>
+</html>

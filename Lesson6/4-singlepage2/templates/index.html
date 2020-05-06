@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            load_page('first');
+
+            document.querySelectorAll('.nav-link').forEach(elem => {
+                elem.onclick = () => {
+                    load_page(elem.dataset.page)
+                    return false;
+                }
+            });
+
+        });
+        
+        // Para manipular eventos del navegador en si ya no nos referimos al objeto document 
+        // sino que tratamos con el objeto windows.
+        // Se recibe al evento e como parametro, porque lo pasamos al momento de apilar
+        window.onpopstate = e => {
+            const data = e.state;
+            document.title = data.title;
+            document.querySelector('main').innerHTML = data.text;
+        };
+
+        function load_page(name){
+
+            const request = new XMLHttpRequest();
+            request.open('GET', `/${name}`);
+
+            request.onload = () => {
+                const response = request.responseText;
+                document.querySelector('main').innerHTML = response;
+
+                
+                document.title = name;
+                // Vamos a apilar utilizando pasaje de datos a la pila
+                // Se envia un diccionario con dos valores, que seran usados para volver a la url
+                history.pushState({'title': name, 'text': response}, name, name);
+            };
+            request.send();
+        }
+        
+    </script>
+</head>
+<body>
+    <header>
+        <hr>
+        <nav>
+            <ul id="nav">
+                <li><a href="" class="nav-link" data-page='first'>First</a></li>
+                <li><a href="" class="nav-link" data-page='second'>Second</a></li>
+                <li><a href="" class="nav-link" data-page='third'>Third</a></li>
+            </ul>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

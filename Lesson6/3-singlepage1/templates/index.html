@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            load_page('first');
+
+            document.querySelectorAll('.nav-link').forEach(elem => {
+                elem.onclick = () => {
+                    load_page(elem.dataset.page)
+                    return false;
+                }
+            });
+
+        });
+        
+        function load_page(name){
+
+            const request = new XMLHttpRequest();
+            request.open('GET', `/${name}`);
+
+            request.onload = () => {
+                const response = request.responseText;
+                document.querySelector('main').innerHTML = response;
+
+                // Usamos html5 History API para darle al usuario una referencia en la URL
+                document.title = name;
+                // history.pushState(1, 2, 3);
+                    // 1: dato que quiero asociar con el push
+                    // 2: titulo de la pag que queremos pushear
+                    // 3: URL que queremos pushear
+                history.pushState(null, name, name);
+            };
+            request.send();
+        }
+        
+    </script>
+</head>
+<body>
+    <header>
+        <hr>
+        <nav>
+            <ul id="nav">
+                <li><a href="" class="nav-link" data-page='first'>First</a></li>
+                <li><a href="" class="nav-link" data-page='second'>Second</a></li>
+                <li><a href="" class="nav-link" data-page='third'>Third</a></li>
+            </ul>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

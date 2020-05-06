@@ -32,4 +32,61 @@ Como podemos simular ese cambio de url sin que la pagina deba recargarse complet
     conocer el historial del navegador y actualizar la URL para mostrar lo que quiero.
     La forma de conseguirlo es hacer un PUSH del estado de la URL al historial del navegador.
 
-Nos quedamos en min 16.
+// history.pushState(1, 2, 3);
+    // 1: dato que quiero asociar con el push
+    // 2: titulo de la pag que queremos pushear
+    // 3: URL que queremos pushear
+    EJ:
+        history.pushState(null, name, name);
+Esta es la forma correcta de cambiar la URL en single-page.
+Si dejamos solo estas lineas tendriamos un problema: si presiono la flecha 'atras' del navegador, la URL cambiara pero no el contenido 
+pertinente para esa URL. Esto se debe a que no tenemos un codigo JS que le indique al navegador 
+que hacer si se presiona la flecha 'atras'.
+Para arreglarlo necesitamos hacer un 'pop' a la pila de urls de la history API.
+La API dispone de un evento que se llama 'onpopstate' y es justamente lo que necesitamos para desapilar
+urls y darles un comportamiento.
+
+En singlepage2/ usamos pasaje de parametros al pushear junto con el evento onpopState aplicado al objeto windows
+    window.onpopstate = e => {
+        const data = e.state;
+        document.title = data.title;
+        document.querySelector('main').innerHTML = data.text;
+    };
+De esta forma se actualiza el contenido al tocar la flecha 'atras'.
+
+Habiendo implementado un comportamiento para la flecha 'atras' ya tenemos resuelto por el navegador el comportamiento 
+para la flecha 'adelante'.
+
+Trabajando con los objetos JS: document & window.
+    window.innerWidth me da el ancho de la ventana
+    window.innerHeight me da el alto de la ventana
+        Hay que tener cuidado porque la ventana puede estarmostrando solo una parte 
+        del documento y las dimensiones del doc son mas grandes q las de la ventana.
+    window.scrollY me da cuantos pixeles estoy alejado desde el inicio del documento hasta
+    el inicio de la ventana
+    document.body.offsetHeight me da la altura de todo el documento completo.
+        Con window.scrollY & document.body.offsetHeight puedo saber si estoy al final de la pagina 
+        Como puede ser esto util? Podemos implementar 'autoloading' en JS.
+
+Aprendimos que Python permite, al asignar contenido en una variable, dar un valor por defecto en caso 
+que uno de los valores no exista.
+    start = int(request.form.get('start') or 0)
+        En este caso, si no existe un elemento del form con name='start', la variable start valdra 0.
+
+Seguimos con JS Templates.
+    Los Templates son formatos de elementos HTML que se llenan dinamicamente con informacion para 
+    ser agregados al DOM.
+Una de las librerias es Handlebars.
+Usamos un script marcado con un ID para asociar un template que Handlebars sabra leer 
+para crear elementos recibiendo parametros con sintax jinja.
+
+Los templates de Handlebars se generan en el Client side, mientras que los de Jinja se generan en el Server side.
+
+Handlebars permite usar estructuras de control.
+
+Para impedir que jinja actue y se confunda con sintaxis handlebar podemos usar:
+    {% raw -%}
+        ...
+    {%- endraw %}
+
+Nos quedamos en min 1.05.00.

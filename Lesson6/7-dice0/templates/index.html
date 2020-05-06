@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script>
+        // definimos un template, es decir, una estructura de qué debe ser agregado al DOM cada vez
+        // Usamos sintax similar a Jinja.
+
+        // Hay problemas de nombres si usamos Handlebars & Jinja
+        // No esta del todo bueno que el template este definido en una linea. Seria 
+        // mucho mejor si escribiesemos html puro y despues Handlebars pudiese compilar todo a la vez
+        const template = Handlebars.compile('<li>You got a {{ value }}</li>');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('#roll').onclick = () => {
+                const roll = Math.floor((Math.random()*6)+1);
+                // cargar el template con el valor del dado y usarlo para crear un contenido
+                const content = template({ 'value': roll });
+                document.querySelector('#rolls').innerHTML += content;
+            };
+        });
+    </script>
+</head>
+<body>
+    <button id="roll">Roll</button>
+    <ul id="rolls">
+    </ul>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    
+    <!-- tipo de archivo definido por handlebars -->
+    <script id='result' type="text/template">
+        <li>
+            <!-- El siguiente codigo necesita dos parametros: values, que es un arreglo de valores, y total, que es la suma de los valores de los dados. -->
+            You rolled:
+            <!-- #each es un 'block helper' que nos permite iterar un arreglo de elementos -->
+            {{#each values}}
+                <!-- se usa 'this' para referirnos a un elemento en cada iteracion del loop -->
+                {{ this }}
+            {{/each}}
+             - Total: {{ total }}
+        </li>
+    </script>
+    <script>
+        // Le indicamos a Handlebars mediante un id el script que tiene compilar
+        // para usar como template
+        const template = Handlebars.compile(document.querySelector('#result').innerHTML);
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            document.querySelector('#roll').onclick = () => {
+                const counter = parseInt(document.querySelector('#counter').value);
+                const rolls = [];
+                let total = 0;
+                for (let i = 0; i < counter; i++){
+                    const value = Math.floor((Math.random()*6)+1);
+                    rolls.push(value);
+                    total += value;
+                }
+                // cargar el template con el valor del dado y usarlo para crear un contenido
+                const content = template({ 'values': rolls, 'total': total });
+                document.querySelector('#rolls').innerHTML += content;
+            };
+        });
+    </script>
+</head>
+<body>
+    <input type="number" id='counter' placeholder="Number of rolls" min="1">
+    <button id="roll">Roll</button>
+    <ul id="rolls">
+    </ul>
+</body>
+</html>
