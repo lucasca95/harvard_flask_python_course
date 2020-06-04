@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @keyframes left_right_left {
+        0% {
+            left: 0%;
+        }
+        50% {
+            left: 50%;
+        }
+        100% {
+            left: 25%;
+        }
+    }
+    h1 {
+        position: relative;
+        animation-name: left_right_left;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+    }
+</style>
+<script>
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const titulo = document.querySelector('#titulo');
+        const boton = document.querySelector('#btn');
+
+        titulo.style.animationPlayState = 'paused';
+        boton.onclick = () => {
+            if (titulo.style.animationPlayState === 'paused')
+                titulo.style.animationPlayState = 'running';
+            else
+                titulo.style.animationPlayState = 'paused';
+        };
+    });
+</script>
+<body>
+    <h1 id='titulo'>Título animado!</h1>
+    <button id='btn'>Change state</button>
+
+</body>
+</html>
