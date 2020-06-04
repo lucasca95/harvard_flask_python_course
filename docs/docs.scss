@@ -1,0 +1,32 @@
+.codigo{
+    font-style: italic;
+    padding-left: 10%;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    padding-left: 40%;
+    width: 100%;
+    background-color: rgb(1, 9, 15);
+    color: white;
+}
+.my-nav{
+    background-color: rgb(3, 24, 44);
+    border-width: 2px;
+    border-color: rgb(3, 65, 90);
+    border-style: solid;
+    padding: 1px;
+    position: fixed;
+    height: 100%;
+}
+.nav-link{
+    color: rgb(196, 86, 13);
+}
+.nav-link:hover{
+    color: yellow;
+}
+
+section{
+    padding: 10px;
+    margin: 1px;
+}
