@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+
+    <style>
+        /* Definimos una animacion CSS llamada 'grow' */
+        @keyframes move {
+            0% {
+                left: 0%;
+            }
+            50% {
+                left: 50%;
+            }
+            100% {
+                left: 0%;
+            }
+        }
+        h1{
+            /* La posicion de este elemento es relativa respecto al resto */
+            position: relative;
+            
+            /* Nombre de animacion asociada */
+            animation-name: move;
+            /* tiempo que lleva la animacion */
+            animation-duration: 3s;
+            /* indicar el sentido de la animacion y en que estado permanecer al finalizar */
+            animation-fill-mode: forwards;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Welcome!</h1>
+</body>
+</html>

@@ -89,4 +89,22 @@ Para impedir que jinja actue y se confunda con sintaxis handlebar podemos usar:
         ...
     {%- endraw %}
 
-Nos quedamos en min 1.05.00.
+
+Nos metemos con animaciones.
+Hay varias formas de generar animaciones.
+Podemos hacer animaciones usando CSS: cambiar una propiedad a otra por una duración de tiempo mientras la aplicación está 
+corriendo.
+
+Definimos una animacion css con @keyframes y dentro podemos dos estados: inicial (from) y final (to). Dentro de cada estado
+indicamos los valores de los atributos que debera tener un elemento animado.
+
+Hay casos donde no nos basta con indicar que sucede al inicio y al final de una animacion, tambien 
+podemos necesitar hacer algo durante una animacion.
+
+Usando solo css hasta ahora no tenemos control de cuando sucede una animacion, ya que de la forma 
+en que se lee el documento html, al css le toca primero y se ejecuta.
+Ahi es cuando entra a jugar JS. Podemos alterar con JS la propiedad de una css animation 
+'animationPlayState' de 'paused' a 'running'
+
+
+Nos quedamos en min 1..00.
