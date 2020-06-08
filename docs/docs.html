@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Docs</title>
     
+    <!-- Fuentes de google -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet"> 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- CSS propia -->
     <link rel="stylesheet" href="docs.css">
 </head>
 <body>
@@ -14,24 +17,69 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-2"></div>
+            <!-- #region NavBar-->
             <div class="my-nav col-2">
                 <ul class="nav flex-column">
                     <li class="nav-item">
                         <a class="nav-link" href="#section_inicio">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#section_1">Git VS Github</a>
+                        <a class="nav-link" href="#section_http">HTTP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section_gitvsgithub">Git VS Github</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#section_2">El lenguaje HTML</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#section_fin">Fin</a>
+                        <a class="nav-link" href="#section_3">El lenguaje CSS</a>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section_3_1">SCSS</a>
+                            </li>
+                        </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section_4">Python</a>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section_4_1">Clases</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section_5">Flask</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section_6">Jinja2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section_SQLAlchemy">SQLAlchemy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section_bdd">Base de datos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section_fin"><strong>Enlaces útiles</strong></a>
+                    </li>
+                    
                 </ul>
             </div>
-            
-            <div class="col-9">
+            <!-- #endregion -->
+            <div class="col-10">
+                <!-- #region ArchivosCSV-->
+                <section id="section_CSV">
+                    <h2>Archivos .CSV</h2>
+                    <p>
+                        Los archivos CSV son utilizados para almacenar datos. Cada línea es un dato y 
+                        cada atributo está separado por una coma. De ahí el nombre: Comma Separated Values.
+                    </p>
+                    <p>Para trabajar este tipo de archivos desde Python se puede importar el módulo 
+                        llamado <strong>csv</strong>.
+                    </p>
+                </section>
+                <!-- #region Inicio-->
                 <section id='section_inicio'>
                     <h1>My Docs - Harvard Web Course</h1>
                     <p>A lo largo de esta página voy a ir dejando mis apuntes sobre el curso de programación 
@@ -42,8 +90,19 @@
                         que no descarto que haya términos explicados de forma coloquial.
                     </p>
                 </section>
-
-                <section id='section_1'>
+                <!-- #endregion -->
+                <hr>
+                <!-- #region Http-->
+                <section id='section_inicio'>
+                    <h2>HTTP</h2>
+                    <p>
+                        Las siglas HTTP refieren a HyperText Transfer Protocol. Gracias a él funciona internet. Es el protocolo utilizado para comunicar servidores.
+                    </p>
+                </section>
+                <!-- #endregion -->
+                <hr>
+                <!-- #region GitVsGitHub-->
+                <section id='section_gitvsgithub'>
                     <h2>Git VS GitHub</h2>
                     <p> Git es un sistema que permite manejar información, aplicando control de versiones. "GitHub"
                         es un sitio web que aloja código de sistemas, aplicando control de versiones al estilo Git.
@@ -53,14 +112,88 @@
                     </p>
                     <h5>Comandos útiles</h5>
                     <ul>
-                        <li>git clone</li>
-                        <li>git pull</li>
-                        <li>git status</li>
-                        <li>git branch</li>
-                        <li>git checkout</li>
-                        <li>git add</li>
-                        <li>git commit</li>
-                        <li>git push</li>
+                        <div class="accordion" id="accordionGit">
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                    git clone
+                                </button>
+                                <div id="collapse1" class="collapse" data-parent="#accordionGit">
+                                    <div class="card-body">
+                                        asd
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                                    git pull
+                                </button>
+                                <div id="collapse2" class="collapse" data-parent="#accordionGit">
+                                    <div class="card-body">
+                                        asd
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                                    git status
+                                </button>
+                                <div id="collapse3" class="collapse" data-parent="#accordionGit">
+                                    <div class="card-body">
+                                        asd
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                                    git branch
+                                </button>
+                                <div id="collapse4" class="collapse" data-parent="#accordionGit">
+                                    <div class="card-body">
+                                        asd
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
+                                    git checkout
+                                </button>
+                                <div id="collapse5" class="collapse" data-parent="#accordionGit">
+                                    <div class="card-body">
+                                        asd
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
+                                    git add
+                                </button>
+                                <div id="collapse6" class="collapse" data-parent="#accordionGit">
+                                    <div class="card-body">
+                                        asd
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="true" aria-controls="collapse7">
+                                    git commit
+                                </button>
+                                <div id="collapse7" class="collapse" data-parent="#accordionGit">
+                                    <div class="card-body">
+                                        asd
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="true" aria-controls="collapse8">
+                                    git push
+                                </button>
+                                <div id="collapse8" class="collapse" data-parent="#accordionGit">
+                                    <div class="card-body">
+                                        asd
+                                    </div>
+                                </div>
+                            </li>
+                        </div>
                     </ul>
                     <p>Cuando estamos trabajando en un mismo repositorio con otros colaboradores puede que nos 
                         surgan conflictos al hacer un "merge". Esos conflictos son detectados por Git y se muestran así:
@@ -78,92 +211,684 @@
                     <p>Podemos hostear en GitHub una página estática de forma gratuita, referenciando 
                         desde las opciones de un repositorio un archivo ".html"
                     </p>
+                    <h4>Branching</h4>
+                    <p>Cuando trabajamos en un proyecto sobre un repositorio Git permite llevar nuestro
+                        trabajo por distintas ramas (branches). Esto es útil para emprolijar el desarrollo
+                        y organizar la implementación de distintas funcionalidades o módulos o tareas de 
+                        forma separada para finalmente integrarlas en la rama principal (master).
+                    </p>
                 </section>
-                
+                <!-- #endregion -->
+                <hr>
+                <!-- #region HTML-->
                 <section id='section_2'>
                     <h2>El lenguaje HTML</h2>
                     <p>HTML es un lenguaje; no de programación sino de estructura de una página web. Nos permite situar
                         <strong>elementos</strong> dentro de la página siguiendo la lógica y estructura del modelo
-                        conocido como <strong>DOM</strong>(Document Object Model).
+                        conocido como <strong>DOM</strong>(Document Object Model). Los elementos HTML poseen "atributos" 
+                        que permiten personalizarlos y/o manipularlos. Hay atributos comunes a todos los elementos HTML y 
+                        existen otros que sólo aplican a cierto tipo de elementos. Es cuestión de ir familiarizándose con 
+                        el lenguaje para poder acostumbrarse a ellos.
+                    </p>
+                    <h4>Atributos</h4>
+                    <ul>
+                        <li>style</li>
+                        <li>class</li>
+                        <li>type</li>
+                        <li>...</li>
+                    </ul>
+                </section>
+                <!-- #endregion -->
+                <hr>
+                <!-- #region CSS-->
+                <section id="section_3">
+                    <h2>El lenguaje CSS</h2>
+                    <p>Es un lenguaje que permite modificar la apariencia de los elementos de una página web.
+                        Todo elemento HTML tiene ciertas "propiedades". CSS permite modificar los valores de las mismas
+                        que tienen por defecto, según necesitemos. Mediante éstos podemos modificar tipo de texto, 
+                        fondo, colores, posición, y más.
+                    </p>
+                    <p>Ahora bien. Para poder modificar un elemento es necesario indicar a qué elemento se va a aplicar
+                        la modificación. Justamente para esto existen los selectores CSS que no son más que distintas 
+                        "formas" de referirnos a los elementos. Existen selectores que identifican elementos de forma 
+                        individual (id) o por grupo, y dentro de la identificación por grupo podemos agrupar a todos los 
+                        elementos de cierto tipo (nombre de elemento) o, incluso, podemos definir nosotros mismos los 
+                        grupos (clases). Dependiendo de lo que necesitemos hacer, elegiremos el selector apropiado.
+                    </p>
+                    <h4>Propiedades</h4>
+                    <ul>
+                        <li>position</li>
+                        <li>
+                            background (fondo del elemento)
+                            <ul>
+                                <li>background-color</li>
+                                <li>...</li>
+                            </ul>
+                        </li>
+                        <li>color (color del texto)</li>
+                        <li>
+                            font (la fuente de un texto)
+                            <ul>
+                                <li>font-size</li>
+                                <li>...</li>
+                            </ul>
+                        </li>
+                        <li>
+                            text
+                            <ul>
+                                <li>text-align</li>
+                                <li>...</li>
+                            </ul>
+                        </li>
+                        <li>width (ancho)</li>
+                        <li>height (alto)</li>
+                        <li>margin (espacio entre el borde y el afuera del elemento)</li>
+                        <li>padding (espacio entre el borde y el adentro del elemento)</li>
+                        <li>...</li>
+                    </ul>
+                    <h4>Selectores</h4>
+                    <ul>
+                        <li>ID
+                            <p>Debe ser único en toda la página.</p>
+                            <p>En un elemento html agregamos un ID por medio del atributo HTML "<strong>id</strong>". En 
+                            código CSS identificamos un ID con la sintaxis "<strong>#nombre_id</strong>"
+                            </p>
+                        </li>
+                        <li>Clase
+                            <p>Asociamos un elemento html a una clase por medio del atributo HTML "<strong>class</strong>". 
+                                Un elemento puede pertenecer simultáneamente a maś de una clase, en tal caso separamos los 
+                                nombres con un espacio. En código CSS identificamos una clase con la sintaxis "<strong><span class="punto">.</span>nombre_clase</strong>"
+                            </p>
+                        </li>
+                        <li>Nombre de elemento
+                            <p>En código CSS identificamos a todos los elementos HTML con la sintaxis "<strong>nombre_elemento</strong>"
+                            </p>
+                        </li>
+                    </ul>
+                    <h4>Usando selectores</h4>
+                    <ul>
+                        <li>A, B { ... }
+                            <p>
+                                Cambios aplican para A y para B.
+                            </p>
+                        </li>
+                        <li>A B { ... }
+                            <p>
+                                Cambios aplican para todo B que tenga A como padre.
+                            </p>
+                        </li>
+                        <li>A > B { ... }
+                            <p>
+                                Cambios aplican para todo B que que sea HIJO DIRECTO de A.
+                            </p>
+                        </li>
+                        <li>A + B { ... }
+                            <p>
+                                Cambios afectan sólo al primer B que esté luego de A, si es que hay uno.
+                            </p>
+                        </li>
+                        <li>A ~ B { ... }
+                            <p>
+                                Cambios afectan a todo B que venga luego de un A.
+                            </p>
+                        </li>
+                        <li>[X=Y] { ... }
+                            <p>
+                                Cambios afectan a todo atributo X que tenga valor Y.
+                            </p>
+                        </li>
+                        <li>X:Y { ... }
+                            <p>
+                                Cambios afectan a las pseudocalses de los elementos html.
+                            </p>
+                        </li>
+                        <li>X::Y { ... }
+                            <p>
+                                Cambios afectan a los pseudoelementos de los elementos html.
+                            </p>
+                        </li>
+                    </ul>
+                    <h4>CSS Responsive</h4>
+                    <div>
+                        <p>Cuando decimos que un sitio es responsivo nos referimos a que se adapta o responde distinto 
+                            según características del dispositivo en el que se esté mostrando.
+                        </p>
+                        <p>Una primera opción para acercarnos a lo responsive es utilzar <strong>media-queries</strong>.
+                            Esto nos va a permitir definir comportamiento CSS en base a las medidas de la pantalla
+                            del equipo que esté abriendo un sitio. Con la definición de bloques <strong>@media</strong> 
+                            podemos hacer distintos bloques CSS según el dispositivo. Incluso podríamos definir distintos
+                            archivos ".css" según el equipo que visite el sitio. La sintaxis dentro de un bloque @media no 
+                            varía del código css normal.
+                        </p>
+                    </div>
+                    <h4 id="section_3_1">SCSS</h4>
+                    <div>
+                        <p>
+                            Gracias a una poderosa gema Ruby llamada <strong>sass</strong> podemos utilizar código SCSS para definir 
+                            archivos CSS de una forma más prolija y en más alto nivel. Los archivos .scss 
+                            son compilados y transformados en .css para poder ser leídos por los navegadores.
+                            El código SCSS es similar al CSS pero maneja de forma más clara aspectos como la
+                             herencia de propiedades CSS, definiciones de variables, bloques @media, etc.
+                        </p>
+                        <p>Para que la gema actúe es necesario correr el comando <em><strong>sass --watch nombreArch.scss:nombreArch.css</strong></em></p>
+                        <p>Ejemplo de herencia:</p>
+                        <p class="codigo">
+                            %padre{<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: yellow;<br>
+                            }<br>
+                            .claseHijo {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@extend %padre;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: blue;<br>
+                            }
+                        </p>
+                        <p>Ejemplo de variable:</p>
+                        <p class="codigo">
+                            $color: red;<br>
+                            .clase {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: $color;<br>
+                            }
+                        </p>
+                        <p>Ejemplo de nesting donde todos los elementos de la clase2 tendrán fondo azul SÓLO SI están
+                            dentro de elementos de la clase1:</p>
+                        <p class="codigo">
+                            .clase1 {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.clase2{<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: blue;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            }
+                        </p>
+                    </div>
+                </section>
+                <!-- #endregion -->
+                <hr>
+                <!-- #region Python-->
+                <section id="section_4">
+                    <h2>Python</h2>
+                    <p>Esta sección contiene algunos datos útiles sobre el lenguaje. Python es usado en 
+                        esta ocasión como lenguaje en el lado del servidor. No se espera que esta sección 
+                        enseñe Python sino que se quiere resaltar aspectos que en lo personal considero importantes.
+                    </p>
+                    <h4>Imprimir en pantalla con formato</h4>
+                    <p>Para imprimir variables junto con texto a partir de Python3 podemos usar:</p>
+                    <p class="codigo">
+                        nombre = 'Lucas'<br>
+                        print(f'Mi nombre es {nombre}')
+                    </p>
+                    <h4>Estructuras de almacenamiento de datos</h4>
+                    <p>Python nos brinda cuatro tipos de variables que permiten almacenar colecciones de datos:
+                        listas, tuplas, sets y diccionarios. En general comparten las características de almacenar datos 
+                        de cualquier tipo, a la vez, y se acceden por medio de un índice. Al momento del acceso de información 
+                        todas las estructuras de Python, salvo los sets, lo hacen por medio de un índice entre corchetes "<strong>[]</strong>".
+                    </p>
+                    <h5>Lista</h5>
+                    <p class="codigo">
+                        # Creación de lista vacía <br>
+                        lista = []
+                    </p>
+                    <h5>Tupla</h5>
+                    <p>Las tuplas son objetos inmutables.</p>
+                    <p class="codigo">
+                        # Creación de tupla <br>
+                        tupla = ('Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo')
+                    </p>
+                    <h5>Set</h5>
+                    <p>Los sets son una colección de elementos únicos desordenados, motivo por el cual no pueden ser indexados.
+                        Al agregar mediante un "add" un elemento a un set, sólo se hará correctamente si el elemento no 
+                        figuraba en el set. Agregar más de un elemento igual NO genera error; simplemente se ignora.
+                    </p>
+                    <p class="codigo">
+                        # Creación de set <br>
+                        s = set() 
+                    </p>
+                    <h5>Diccionario</h5>
+                    <p>Un diccionario se indexa por medio de lo que se conoce como <em>llaves</em> y cada una guarda 
+                        un <em>valor</em>.
+                    </p>
+                    <p class="codigo">
+                        # Creación de diccionario vacío <br>
+                        d = {}<br>
+                        # Agregar un elemento <br>
+                        d['nombre'] = 'Lucas'
+                    </p>
+                    <h4 id="section_4_1">Clases</h4>
+                    <p>Python permite trabajar con objetos mediante la definición de clases. En general una clase 
+                        se define así:
+                    </p>
+                    <p class="codigo">
+                        class nombreClase(clasePadreSiLaHubiere):<br>
+                        |&nbsp;|&nbsp;|&nbsp;# atributos de clase <br>
+                        <br>
+                        |&nbsp;|&nbsp;|&nbsp;# constructor <br>
+                        |&nbsp;|&nbsp;|&nbsp;def __init__(self, x=None, y=None, ...) <br>
+                        |&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;self.x = x <br>
+                        |&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;self.y = y <br>
+                        |&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;... <br>
+                        <br>
+                        |&nbsp;|&nbsp;|&nbsp;# métodos de clase <br>
+                        |&nbsp;|&nbsp;|&nbsp;def nombreMetodo(self, ...): <br>
+                        |&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;# comportamiento...
+                    </p>
+                    <h4>Importación de módulos</h4>
+                    <p>
+                        Al momento de importar un módulo, Python literalmente copia y pega el código del 
+                        archivo que se está trayendo y ejecuta una a una las línas que tenga escritas. Esto 
+                        puede llevar a ocasionar problemas porque se corren sentencias que no esperamos que 
+                        tengan lugar.
+                    </p>
+                    <p>
+                        La forma correcta de controlar que esto suceda es definir una función en el archivo ".py" 
+                        como la siguiente:
+                        <p class="codigo">
+                            # ...código python <br>
+                            def main(): <br>
+                            &nbsp;&nbsp;&nbsp;# Comportamiento esperado para el archivo cuando sea éste quien se ejecute. <br>
+                            if __name__ == "__main__": <br>
+                            &nbsp;&nbsp;&nbsp;main()
+                        </p>
+                        Así, Python ejecutará el código correspondiente a la función main() sólo si el archivo es el 
+                        que fue ejecutado. Se conoce el nombre del archivo ejecutado por medio de la variable global 
+                        <strong>__name__</strong>.
+                    </p>
+                    <h4>Excepciones</h4>
+                    <p>Conocer las excepciones nos permite corregir de un modo más eficiente los errores.</p>
+                    <ul>
+                        <li>
+                            IndexError
+                            <p>
+                                Ocurre cuando queremos acceder a una posicion de una lista que esta fuera del rango 
+                                de la cantidad de elementos.
+                            </p>
+                        </li>
+                        <li>
+                            NameError
+                            <p>
+                                Se llama a una funcion que no se encuentra.
+                            </p>
+                        </li>
+                    </ul>
+                </section>
+                <!-- #endregion -->
+                <hr>
+                <!-- #region Flask-->
+                <section id="section_5">
+                    <h2>Flask</h2>
+                    <p>Flask es un microframework escrito en Python que facilita la creación y puesta en marcha de 
+                        aplicaciones web. A su vez proporciona módulos que son útiles al momento de atender pedidos
+                        HTTP y transferir información en distintos formatos (JSON, Templates, etc.).
+                    </p>
+                    <p>Por defecto el servidor Flask corre en el puerto 5000.</p>
+                    <p>Por lo general una aplicación Flask contiene métodos que responden a los requests HTTP. La 
+                        definición del formato de cada request se hace por medio de <strong>decoradores</strong>. A 
+                        continuación, un código que responde a pedidos HTTP GET y POST con un mensaje "Hello World!".
+                        <p class="codigo">
+                            @app.route('/', methods=['GET', 'POST']) <br>
+                            def index(): <br>
+                            &nbsp;&nbsp;&nbsp; return "Hello World!"
+                        </p>
+                    </p>
+                    <h4>Módulos y objetos Flask</h4>
+                    <ul>
+                        <li>render_template (objeto)
+                            <p>
+                                Permite devolver una página <strong>.html</strong> como response. El template 
+                                se buscará dentro de la carpeta <strong>templates</strong> ubicada en la raíz del 
+                                proyecto, es decir, donde esté el archivo "*.py" que contenga la aplicación Flask. 
+                                La sentencia render_template admite el pasaje de parámetros desde el servidor hacia 
+                                la vista.
+                                <p class="codigo">
+                                    @app.route('/algunaRuta', methods=['GET', 'POST']) <br>
+                                    def nombreMetodo(): <br>
+                                    &nbsp;&nbsp;&nbsp; mensaje = 'Hello World!' <br>
+                                    &nbsp;&nbsp;&nbsp; return render_template('vista.html', nombre_parametro=mensaje)
+                                </p>
+                            </p>
+                        </li>
+                        <li>
+                            request (objeto)
+                            <p>
+                                Es usado para la comunicación entre un template y el servidor cuando se hace una petición 
+                                a una url por POST, lo que significa que el servidor recibe datos que NO FIGURAN en la 
+                                url de la petición. El objeto request contiene un objeto <strong>form</strong> el cual 
+                                permite obtener el valor de un atributo <strong>name</strong> de un input por medio del 
+                                método <strong>get</strong>. 
+                                <p class="codigo">
+                                    valor = request.form.get('nombreDelCampoEnAtributoName')
+                                </p>
+                            </p>
+                        </li>
+                        <li>flask_session (módulo)
+                            <p>
+                                Configura el servidor para habilitar el uso de variables de sesión. Contiene el <strong>objeto Session</strong>
+                                el cual requiere una configuración básica y una asociación con la aplicación Flask.
+                                <p class="codigo">
+                                    app.config["SESSION_PERMANENT"] = False <br>
+                                    app.config["SESSION_TYPE"] = "filesystem" <br>
+                                    Session(app) <br>
+                                </p>
+                            </p>
+                        </li>
+                        <li>
+                            session (objeto)
+                            <p>
+                                Trabaja junto con el módulo <strong>flask_session</strong>. Permite acceder al almacenamiento 
+                                de datos en la sesión. Una vez configurado el uso de sesión, la variable session se accede como 
+                                un diccionario Python común.
+                                <p class="codigo">
+                                    # inicialización de variable de sesión llamada "nombres" <br>
+                                    if session.get("nombres") is None: <br>
+                                    &nbsp;&nbsp;&nbsp;session["nombres"] = []
+                                </p>
+                                <p class="codigo">
+                                    # borrar variable de sesión del objeto session <br>
+                                    <strong>---COMPLETAR---</strong> 
+                                </p>
+                                
+                            </p>
+                        </li>
+                    </ul>
+                    <h4>Variables de entorno</h4>
+                    <ul>
+                        <li>
+                            FLASK_DEBUG
+                            <p>
+                                Variable <em>booleana</em> que al valer True permite que Flask recargue la aplicación cada 
+                                vez que se detecta un cambio en el código del servidor.
+                            </p>
+                        </li>
+                    </ul>
+                    <h4>Formularios</h4>
+                    <p>Así como el servidor envía datos a un template, éste puede enviarle datos al server. 
+                        Una de las alternativas para lograr la comunicación en este sentido es el uso de formularios.
+                        Los formularios son elementos HTML que contienen elementos de tipo "entrada" y son útiles 
+                        para obtener datos de un usuario del sistema.
+                    </p>
+                    <p>
+                        Los elementos de entrada son los <strong>input</strong> y con el atributo <em>type</em> logramos
+                        que se comporten del modo que queremos. Un detalle importante en la comunicación template -> server 
+                        es que el servidor recibirá de un formulario el valor que esté especificado en el atributo 
+                        <strong>name</strong> del elemento input. Cuando trabajamos con Flask, el modo correcto de 
+                        recuperar datos desde un template en el servidor es por medio del módulo <strong>request</strong>.
+                    </p>
+                    <h4>Manejo de sesiones</h4>
+                    <p>
+                        Las sesiones permiten a un servidor almacenar datos asociados a un usuario particular. Recurrimos 
+                        a ellas cuando hay cierta información que pertenece a un usuario y no queremos que los datos sean 
+                        accesibles por otros.
+                    </p>
+                    <p>
+                        Las variables de sesión mueren cuando el server se reinicia. Si lo que necesitamos es mayor 
+                        persistencia hay que utilizar una <em>base de datos</em>.
                     </p>
                 </section>
-                
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
+                <!-- #endregion -->
+                <hr>
+                <!-- #region Jinja2-->
+                <section id="section_6">
+                    <h2>Jinja2</h2>
+                    <p>
+                        Es el componente Flask que permite trabajar con vistas. Al momento de renderizar una 
+                        vista Jinja2 se encarga de buscarlas y crearlas, reemplazando valores de parámetros 
+                        enviados a las vistas desde el servidor y ejecutando sentencias de control siempre que 
+                        corresponda, para lo cual cuenta con una sintaxis propia.
+                    </p>
+                    <h4>Acceso a variables</h4>
+                    <p>
+                        Debemos saber con qué nombre hemos pasado por medio de un "render_template" una variable a una vista.
+                        Suponiendo que la variable se llama "param1", mostramos cómo acceder al valor de la misma según corresponda.
+                        <p>Para usar el valor de la variable en una estructura de control</p>
+                        <p class="codigo">
+                            {% param1 %}
+                        </p>
+                        <p>Para mostrar el valor de una variable en pantalla</p>
+                        <p class="codigo">
+                            {{ param1 }}
+                        </p>
+                    </p>
+                    <h4>Herencia de vistas</h4>
+                    <p>
+                        La herencia entre templates es muy útil cuando nuestra vista cuenta con zonas bien diferenciables o 
+                        modularizables. La herencia nos permite definir bloques del código de una vista que deben ser completados 
+                        con el contenido especificado en un archvio .html diferente al actual. Esto nos brinda reusabilidad de 
+                        código y hace más legible y más prolijo el proyecto.
+                    </p>
+                    <p>
+                        Cuando usamos herencia de vistas necesitamos incluir código Jinja2 en dos archivos .html distintos: uno 
+                        que marca dónde se introducirá el bloque "comodín" y el otro que define el contenido .html que debe ser 
+                        insertado al momento de renderizar un template.
+                    </p>
+                    <p>
+                        En el template principal... 
+                        <p class="codigo">
+                            "...codigo html..." <br>
+                            {% block nombreBloque %} {% endblock %} <br>
+                            "...codigo html..."
+                        </p>
+                        En el template externo... 
+                        <p class="codigo">
+                            {% extends 'nombreArchivo.html' %} <br>
+                            {% block nombreBloque %} <br>
+                            "...codigo html..." <br>
+                            {% endblock %}
+                        </p>
+                    </p>
                 </section>
-                
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
+                <!-- #endregion -->
+                <hr>
+                <!-- #region SQLAlchemy-->
+                <section id="section_SQLAlchemy">
+                    <h2>SQLAlchemy</h2>
+                    <p>Es biblioteca Python que permite ejecutar comandos SQL desde Python.</p>
+                    <p>
+                        Podemos usar SQLAlchemy para realizar consultas a una base de datos escribiéndolas
+                        en texto plano. Primero se importa el módulo, se crea el objeto "db", que será 
+                        la conexión con la bdd.
+                        <p class="codigo">
+                            from sqlalchemy import create_engine <br>
+                            from sqlalchemy.orm import scoped_session, sessionmaker <br>
+                            engine = create_engine('conection_url') <br>
+                            db = scoped_session(sessionmaker(bind=engine))
+                        </p>
+                    </p>
                 </section>
-                
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
+                <!-- #endregion -->
+                <hr>
+                <!-- #region BaseDeDatos-->
+                <section id="section_bdd">
+                    <h2>Base de datos</h2>
+                    <p>
+                        Hay dos tipos de bases de datos: relacionales y no relacionales. La distinción surge 
+                        de la forma en la que se accede a los datos. En las relacionales se cuenta con una referencia 
+                        al atributo identificador de un elemento de una tabla externa.
+                    </p>
+                    <p>
+                        SQL es el lenguaje principal de las base de datos relacionales. Sus siglas vienen de Structured 
+                        Queries Language. Ejemplos de bases de datos SQL son SQLite, MySQL, PostgreSQL.
+                    </p>
+                    <p>
+                        Un detalle importante es que SQL se considera un estándar que, según el motor de base de datos 
+                        que se utilice, se implementará de una u otra manera. A grandes rasgos, la esencia SQL se respeta,
+                        aunque con ciertas variaciones.
+                    </p>
+                    <h4>Tipos de datos</h4>
+                    <ul>
+                        <li>
+                            INTEGER
+                        </li>
+                        <li>
+                            DECIMAL
+                        </li>
+                        <li>
+                            SERIAL -> integer autoincrementable / bastante particular de postgreSQL
+                        </li>
+                        <li>
+                            VARCHAR(xx) -> strings de xx largo
+                        </li>
+                        <li>
+                            TIMESTAMP -> fecha y hora
+                        </li>
+                        <li>
+                            BOOLEAN
+                        </li>
+                        <li>
+                            ENUM
+                        </li>
+                        <li>
+                            ...
+                        </li>
+                    </ul>
+                    <h4>Constraints</h4>
+                    <p>Son restricciones que se imponen a las columnas de una tabla de la base de datos.</p>
+                    <ul>
+                        <li>
+                            NOT NULL -> Campo no puede ser vacío.
+                        </li>
+                        <li>
+                            UNIQUE -> Valor único de columna para toda la tabla.
+                        </li>
+                        <li>
+                            PRIMARY KEY -> Campo identificador único de cada registro de la tabla.
+                        </li>
+                        <li>
+                            DEFAULT -> Valor por defecto para la columna, en caso que no se especifique algún valor.
+                        </li>
+                        <li>
+                            CHECK -> Usados para cumplir cierta condición.
+                        </li>
+                        <li>
+                            REFERENCES -> Usado con claves foráneas. Referenciamos otra tabla.
+                        </li>
+                        <li>
+                            ...
+                        </li>
+                    </ul>
+                    <h4>Operaciones básicas</h4>
+                    <ul>
+                        <div class="accordion" id="accordionOpBasicas">
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#OpBasicas1" aria-expanded="true" aria-controls="OpBasicas1">
+                                    Crear tabla
+                                </button>
+                                <div id="OpBasicas1" class="collapse" data-parent="#accordionOpBasicas">
+                                    <div class="card-body">
+                                        <p class="codigo">
+                                            CREATE TABLE nombreTabla( <br>
+                                            &nbsp;&nbsp;&nbsp;id SERIAL PRIMARY KEY AUTO_INCREMENT, <br>
+                                            &nbsp;&nbsp;&nbsp;attr1 dataType, <br>
+                                            &nbsp;&nbsp;&nbsp;attr2 dataType, <br>
+                                            &nbsp;&nbsp;&nbsp;attr3 dataType, <br>
+                                            &nbsp;&nbsp;&nbsp;... <br>
+                                            );
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#OpBasicas2" aria-expanded="true" aria-controls="OpBasicas2">
+                                    Eliminar tabla
+                                </button>
+                                <div id="OpBasicas2" class="collapse" data-parent="#accordionOpBasicas">
+                                    <div class="card-body">
+                                        <p class="codigo">
+                                            DROP TABLE IF EXISTS nombreTabla;
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#OpBasicas3" aria-expanded="true" aria-controls="OpBasicas3">
+                                    Insertar registros en tabla
+                                </button>
+                                <div id="OpBasicas3" class="collapse" data-parent="#accordionOpBasicas">
+                                    <div class="card-body">
+                                        <p class="codigo">
+                                            INSERT INTO nombreTabla( <br>
+                                            &nbsp;&nbsp;&nbsp;nombre_col1, <br>
+                                            &nbsp;&nbsp;&nbsp;nombre_col2, <br>
+                                            &nbsp;&nbsp;&nbsp;nombre_col3, <br>
+                                            &nbsp;&nbsp;&nbsp;... <br>
+                                            )VALUES( <br>
+                                            &nbsp;&nbsp;&nbsp;valor_col1, --valores string van en comillas simples <br>
+                                            &nbsp;&nbsp;&nbsp;valor_col2, <br>
+                                            &nbsp;&nbsp;&nbsp;valor_col3, <br>
+                                            &nbsp;&nbsp;&nbsp;... <br>
+                                            );
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#OpBasicas4" aria-expanded="true" aria-controls="OpBasicas4">
+                                    Actualizar registros de una tabla
+                                </button>
+                                <div id="OpBasicas4" class="collapse" data-parent="#accordionOpBasicas">
+                                    <div class="card-body">
+                                        <p class="codigo">
+                                            UPDATE nomTabla <br>
+                                            SET nomCol = newValue <br>
+                                            WHERE (condición);      --  si no hay condicion los cambios aplican a todos los registros de la tabla
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#OpBasicas5" aria-expanded="true" aria-controls="OpBasicas5">
+                                    Eliminar registros de una tabla
+                                </button>
+                                <div id="OpBasicas5" class="collapse" data-parent="#accordionOpBasicas">
+                                    <div class="card-body">
+                                        <p class="codigo">
+                                            DELETE FROM nomTabla <br>
+                                            WHERE (condition);      --  sin condicion se vacía la tabla
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </div>
+                    </ul>
+                    <h4>SQL Transactions</h4>
+                    <h5>Race conditions</h5>
+                    <p>
+                        Si mucha gente quiere acceder a la BDD y hacer operaciones a la vez
+                        podríamos tener problemas. El problema ocurre cuando se nos meten operaciones 
+                        en el medio de una más grande. Para solucionarlo existen las <em>transacciones</em>. 
+                        Éstas permiten bloquear el acceso de la BDD para que otras operaciones no molesten.
+                    </p>
+                    <p class="codigo">
+                        BEGIN -- bloquea la bdd <br>
+                        COMMIT -- libera la bdd 
+                    </p>
+                    <h4>Conexión BDD - Server</h4>
+                    <p>Un server necesita un driver para conectarse con una base de datos.</p>
+                    <ul>
+                        <li>
+                            PostgreSQL
+                            <p class="codigo">
+                                connection_url = 'postgresql+psycopg2://userName:userPassword@host/databaseName'
+                            </p>
+                        </li>
+                    </ul>
                 </section>
-                
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
-                <section>
-                    <h2>Algo</h2>
-                    <p></p>
-                </section>
+                <!-- #endregion -->
+                <hr>
+                <!-- #region Enlaces Útiles-->
                 <section id='section_fin'>
+                    <h2>Enlaces útiles</h2>
+                    <ul>
+                        <li>
+                            <a href="#">Docs Flask</a>
+                        </li>
+                        <li>
+                            <a href="#">Docs Flask-SQLAlchemy</a>
+                        </li>
+                        <li>
+                            <a href="#">Docs Flask-RESTFul</a>
+                        </li>
+                    </ul>
+                </section>
+                <!-- #endregion -->
+                
+                <hr>
+                <section>
                     <h2></h2>
                     <p></p>
                 </section>
@@ -173,7 +898,7 @@
         
     </div>
     <footer>
-        lucascamino95@gmail.com
+        Lucas Agustín Camino - lucascamino95@gmail.com
     </footer>    
     
     

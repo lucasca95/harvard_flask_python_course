@@ -124,7 +124,7 @@ UPDATE nomTabla
     SET nomCol = newValue
     WHERE (condition);      --  si no hay condicion los cambios aplican a todos los registros de la tabla
 
-Eliminar registros de una tabla 
+Eliminar registros de una tabla
 DELETE FROM nomTabla 
     WHERE (condition);      --  sin condicion se vacía la tabla
 
@@ -148,8 +148,11 @@ de la BDD para que otras operaciones no molesten.
 
 SQL Transactions
     BEGIN -- bloquea la bdd
-    
     COMMIT -- libera la bdd 
+
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 
 SQLAlchemy es biblioteca Python que permite ejecutar comandos SQL desde Python
 SQLAlchemy funciona con PostgreSQL sólo si tenemos instalado el módulo psycopg2.

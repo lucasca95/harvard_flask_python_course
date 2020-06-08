@@ -1,6 +1,9 @@
 Python and Flask
 Python
-In this class, Python 3.6 will be used. For those unfamiliar, Python is an interpreted language that will be used in the context of this class to generate dynamic websites and web applications.
+In this class, Python 3.6 will be used. For those unfamiliar, Python is an interpreted 
+language that will be used in the context of this class to generate dynamic websites and 
+web applications.
+
 Some basic Python syntax:
 Print a string to the screen:
   print("Hello, world!")
@@ -95,8 +98,9 @@ This instantiates a new Point with x = 3 and y = 5:
 When this line is run, the __init__ function of the Point class is automatically run.
 To access the x attribute of p, use dot notation:
   print(p.x)
+
 Flask
-HTTP (Hypertext Transfer Protocol) is the system the internet uses to interact and communicate between computers and servers. When a URL is entered into a browser, an HTTP request is sent to a server, which interprets the request and sends appropriate HTTP response, which, if all goes as expected, contains the requested information to be displayed by the web browser.
+HTTP (HyperText Transfer Protocol) is the system the internet uses to interact and communicate between computers and servers. When a URL is entered into a browser, an HTTP request is sent to a server, which interprets the request and sends appropriate HTTP response, which, if all goes as expected, contains the requested information to be displayed by the web browser.
 Having already begun to design websites, the next step is to write the code that takes care of the server-side processing: receiving and interpreting requests, and generating a response for the user.
 Flask a microframework written in Python that makes it easy to get a simple web application up and running with some features that can be useful in the development process.
 A Simple App
