@@ -1,0 +1,186 @@
+En Lesson 5...
+    Trabajmos en el diseño de aplicaciones web usando Python y Flask, y aprendimos
+    un poco de JavaScript, lenguaje utilizado para correr código dentro de nuestro navegador, en 
+    el lado del cliente, con el objeto de hacer tareas más dinámicamente e interfaces interactivas.
+
+En Lesson6 vamos a seguir con esa corriente: hacer apps dinámicas.
+
+Single-Page Apps
+    El concepto trata sobre tomar contenido que usualmente ubiese estado en diferentes páginas o, digamos, 
+    distintas rutas Flask y en donde la página va a hacer un pedido de información al servidor dependiendo
+    de lo que necesite mostrar en pantalla.
+    Una de las tecnologías que vimos en Lesson5 fue AJAX, que permitía de forma asíncrona hacer requests
+    al servidor cuando necesitabamos mostrar más información en nuestra página.
+    El objetivo las single-page apps va orientado a eso.
+
+En multipage/ tenemos una app flask multipagina. Debemos cambiar de pagina si queremos ver nuevo contenido.
+
+En singlepage/ logramos el mismo comportamiento con una unica pagina y tres metodos para mostrar tres 
+comportamientos distintos. Usamos AJAX para tener funciones dinamicas de carga.
+
+Cuales serian los beneficios de tener una unica pagina en vez de muchas?
+    - No tenemos que recargar la pagina!
+    - Si tuvieramos mucho contenido no necesitariamos recargar todo sino solamente lo que debe 
+    actualizarse.
+
+Desventajas?
+    -En un ambiente multipagina la url cambia mientras que la url permanece igual 
+    y el usuario puede necesitar saber donde está mientras navega por un sitio web.
+
+Cómo podemos simular ese cambio de url sin que la página deba recargarse completamente?
+    En HTML5 tenemos lo que se llama "HTML5 History API". Es una funcionalidad de HTML que nos permite
+    conocer el historial del navegador y actualizar la URL para mostrar lo que quiero.
+    La forma de conseguirlo es hacer un PUSH del estado de la URL al historial del navegador.
+
+// history.pushState(param1, param2, param3);
+    // param1: dato que quiero asociar con el push
+    // param2: titulo de la pag que queremos pushear
+    // param3: URL que queremos pushear
+    EJ:
+        history.pushState(null, name, name);
+Esta es la forma correcta de cambiar la URL en single-page.
+Si dejamos sólo estas lineas tendriamos un problema: si presiono la flecha 'atras' del navegador, la URL 
+cambiara pero no el contenido pertinente para esa URL. Esto se debe a que no tenemos un codigo JS que le
+indique al navegador que hacer si se presiona la flecha 'atras'.
+Para arreglarlo necesitamos hacer un 'pop' a la pila de urls de la history API.
+La API dispone de un evento que se llama 'onpopstate' y es justamente lo que necesitamos para desapilar
+urls y darles un comportamiento.
+
+En singlepage2/ usamos pasaje de parametros al pushear junto con el evento onpopState aplicado al objeto windows
+    window.onpopstate = e => {
+        const data = e.state;
+        document.title = data.title;
+        document.querySelector('main').innerHTML = data.text;
+    };
+De esta forma se actualiza el contenido al tocar la flecha 'atras'.
+
+Habiendo implementado un comportamiento para la flecha 'atras' ya tenemos resuelto por el navegador el comportamiento 
+para la flecha 'adelante'.
+
+Trabajando con los objetos JS: document & window.
+    window.innerWidth me da el ancho de la ventana
+    window.innerHeight me da el alto de la ventana
+        Hay que tener cuidado porque la ventana puede estar mostrando sólo una parte 
+        del documento y las dimensiones del doc son mas grandes q las de la ventana.
+    window.scrollY me da cuantos pixeles estoy alejado desde el inicio del documento hasta
+    el inicio de la ventana
+    document.body.offsetHeight me da la altura de todo el documento completo.
+        Con window.scrollY & document.body.offsetHeight puedo saber si estoy al final de la pagina 
+        Como puede ser esto util? Podemos implementar 'autoloading' en JS.
+
+Aprendimos que Python permite, al asignar contenido en una variable, dar un valor por defecto en caso 
+que uno de los valores no exista.
+    start = int(request.form.get('start') or 0)
+        En este caso, si no existe un elemento del form con name='start', la variable start valdra 0.
+
+Seguimos con JS Templates.
+    Los Templates son formatos de elementos HTML que se llenan dinamicamente con informacion para 
+    ser agregados al DOM.
+Una de las librerias es Handlebars.
+Usamos un script marcado con un ID para asociar un template que Handlebars sabra leer 
+para crear elementos recibiendo parametros con sintax jinja.
+
+Los templates de Handlebars se generan en el Client side, mientras que los de Jinja se generan en el Server side.
+
+Handlebars permite usar estructuras de control.
+
+Para impedir que jinja actue y se confunda con sintaxis handlebar podemos usar:
+    {% raw -%}
+        ...
+    {%- endraw %}
+
+
+Nos metemos con animaciones.
+Hay varias formas de generar animaciones.
+Podemos hacer animaciones usando CSS: cambiar una propiedad a otra por una duración de tiempo mientras la aplicación está 
+corriendo.
+
+Definimos una animacion css con @keyframes y dentro podemos dos estados: inicial (from) y final (to). Dentro de cada estado
+indicamos los valores de los atributos que debera tener un elemento animado.
+
+Hay casos donde no nos basta con indicar que sucede al inicio y al final de una animacion, tambien 
+podemos necesitar hacer algo durante una animacion.
+
+Usando solo css hasta ahora no tenemos control de cuando sucede una animacion, ya que de la forma 
+en que se lee el documento html, al css le toca primero y se ejecuta.
+Ahi es cuando entra a jugar JS. Podemos alterar con JS la propiedad de una css animation 
+'animationPlayState' de 'paused' a 'running'
+
+
+Nos quedamos en min 1..00.
+Nos introducimos en CSS Animation, que no es más que instrucciones CSS
+que permiten establecer para un elemento un estado inicial y uno final,
+y se indica en cuánto tiempo se necesita que se llegue de uno a otro.
+
+Definimos una animación mediante el indicador "@keyframes", el estado
+inicial con "from" y el final on "to".
+Ej: agrandamos un titulo de 20px a 100px en un tiempo de 2 segundos.
+<style>
+    @keyframes my_animation_name {
+        from {
+            ... propiedades a definir para estado inicial
+            font-size: 20px:
+        }
+        to {
+            ... propiedades a definir para estado final
+            font-size: 100px:
+        }
+    }
+    h1 {
+        animation_name: my_animation_name;
+        animation-duration: 2s;
+        animatino-fill-mode: forwards;
+    }
+</style>
+
+Además de definir un estado "from" y un estado "to" podemos 
+establecer qué sucede en una animación a lo largo del 
+tiempo mediante indicar qué propiedades debe tener el elemento 
+animado según el porcentaje de tiempo de la animación.
+Ej: movemos un titulo de izquierda, a derecha, a izquieda en 3 segundos.
+<style>
+    @keyframes my_animation_name {
+        0% {
+            left: 0%;
+        }
+        50% {
+            left: 50%;
+        }
+        100% {
+            left: 25%;
+        }
+    }
+    h1 {
+        animation_name: my_animation_name;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+    }
+</style>
+
+Más propiedades de una animación CSS:
+    - animation-iteration-count: infinite;
+
+Toda animación tiene un estado llamado "animationPlayState". Gracias a usar JS podemos 
+alterar dinámicamente este estado logrando que una animación se active o desactive
+según nuestras necesidades. "animationPlayState" puede tener valores "running" o "paused".
+
+#######################################
+fuera de contexto pero importante. Con el sig código podemos generalizar un listener
+para los clicks del mouse.
+
+document.addEventListener('click', event => {
+    const element = event.target;
+    if (element.className === 'nombreDeClase') {
+        ...hacer algo con el objeto element;
+    }
+});
+
+
+Hablamos de SVG (Scalar Vector Graphics)
+Un elemento SVG permite graficar formas definidas por nosotros
+en una página html. Así definimos un área SVG:
+<svg style='width:100%; height:800px'>
+</svg>
+
+Existe una librería JS llamada "d3" que permite trabajar con 
+figuras svg. https://d3js.org/

@@ -1,0 +1,9 @@
+/* Clase padre CSS de la cual heredan propiedades los hijos */
+%message{ 
+    background-color: yellow;
+}
+
+.success {
+    @extend %message;
+    color: blue;
+}
