@@ -710,14 +710,72 @@
                         configuración del ORM y estrucuta la vinculación de los modelos de nuestro sistema. 
                     </p>
                     <p>
-                        Podemos usar SQLAlchemy para realizar consultas a una base de datos escribiéndolas
-                        en texto plano. Primero se importa el módulo, se crea el objeto "db", que será 
-                        la conexión con la bdd.
+                        Podemos usar Flask-SQLAlchemy agregamos el módulo correspondiente, creamos la aplicación Flask,
+                        asociamos un url de conexión con la bdd a la aplicación Flask y, por último, creamos un objeto 
+                        base de datos al que le asociamos la aplicación en el constructor.
                         <p class="codigo">
-                            from sqlalchemy import create_engine <br>
-                            from sqlalchemy.orm import scoped_session, sessionmaker <br>
-                            engine = create_engine('conection_url') <br>
-                            db = scoped_session(sessionmaker(bind=engine))
+                            from flask_sqlalchemy import SQLAlchemy
+                            app = Flask(__name__)
+                            app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://userName:userPassword@host:port/dbName'
+                            db = SQLAlchemy(app)
+                        </p>
+                    </p>
+                    <h4>Creación de modelos</h4>
+                    <p>Los modelos extienden del objeto db.Model</p>
+                    <p class="codigo">
+                        class nombreClase(db.Model):
+                        &nbsp;&nbsp;&nbsp;__tablename__ = 'nombreTabla' <br>
+                        &nbsp;&nbsp;&nbsp;# atrib de clase <br>
+                        &nbsp;&nbsp;&nbsp;id = db.Column(db.Integer, primary_key=True) <br>
+                        &nbsp;&nbsp;&nbsp;x1 = db.Column(db.TipoDeDatoSegunDocsFlask-SQLAlchemy) <br>
+                        &nbsp;&nbsp;&nbsp;x2 = db.Column(db.TipoDeDatoSegunDocsFlask-SQLAlchemy) <br>
+                        &nbsp;&nbsp;&nbsp;def __init__(self, x1=None, x2=None, ...): <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.x1 = x1  <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.x2 = x2 <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... <br>
+                        <br>
+                        def serialize(self): <br>
+                        """Return object data in easily serializeable format""" <br>
+                        return { <br>
+                        &nbsp;&nbsp;&nbsp;'id'  : self.id, <br>
+                        &nbsp;&nbsp;&nbsp;'x1': self.x1, <br>
+                        &nbsp;&nbsp;&nbsp;'x2': self.x2, <br>
+                        &nbsp;&nbsp;&nbsp;'...': ... <br>
+                        }
+                    </p>
+                    <h4>Relaciones</h4>
+                    <h5>OneToMany</h5>
+                    <p class="codigo">COMPLETAR</p>
+                    <h5>ManyToMany</h5>
+                    <p class="codigo">COMPLETAR</p>
+                    <h4>Inicializar DB</h4>
+                    <p>
+                        Borrar esquema de base de datos 
+                        <p class="codigo">
+                            db.drop_all()
+                        </p>
+                    </p>
+                    <p>
+                        Crear esquema de base de datos
+                        <p class="codigo">
+                            db.create_all()
+                        </p>
+                    </p>
+                    <p>
+                        Agregar objetos en base de datos 
+                        <p class="codigo">
+                            db.session.add(objeto nuevo1) <br>
+                            db.session.add(objeto nuevo2) <br>
+                            &nbsp;&nbsp;&nbsp;... <br>
+                            db.session.add(objeto nuevoN) <br>
+                            db.session.commit()
+                        </p>
+                    </p>
+                    <p>
+                        Borrar objetos en base de datos 
+                        <p class="codigo">
+                            db.session.delete(objeto) <br>
+                            db.session.commit()
                         </p>
                     </p>
                 </section>
