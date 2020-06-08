@@ -72,10 +72,11 @@
                 <section id="section_CSV">
                     <h2>Archivos .CSV</h2>
                     <p>
-                        Los archivos CSV son utilizados para almacenar datos. Cada línea es un dato y 
+                        Los archivos CSV son utilizados para manejar datos. Cada línea es un dato y 
                         cada atributo está separado por una coma. De ahí el nombre: Comma Separated Values.
                     </p>
-                    <p>Para trabajar este tipo de archivos desde Python se puede importar el módulo 
+                    <p>
+                        Para trabajar este tipo de archivos desde Python se puede importar el módulo 
                         llamado <strong>csv</strong>.
                     </p>
                 </section>
@@ -456,10 +457,12 @@
                     </p>
                     <p class="codigo">
                         class nombreClase(clasePadreSiLaHubiere):<br>
-                        |&nbsp;|&nbsp;|&nbsp;# atributos de clase <br>
+                        |&nbsp;|&nbsp;|&nbsp;# atributos de clase, cuyos valores son compartidos por todas las instancias
+                        de la clase.<br>
                         <br>
                         |&nbsp;|&nbsp;|&nbsp;# constructor <br>
                         |&nbsp;|&nbsp;|&nbsp;def __init__(self, x=None, y=None, ...) <br>
+                        |&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;# atributos de instancia, cuyos valores son propios de la instancia <br>
                         |&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;self.x = x <br>
                         |&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;self.y = y <br>
                         |&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;... <br>
@@ -467,6 +470,11 @@
                         |&nbsp;|&nbsp;|&nbsp;# métodos de clase <br>
                         |&nbsp;|&nbsp;|&nbsp;def nombreMetodo(self, ...): <br>
                         |&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;# comportamiento...
+                    </p>
+                    <p>
+                        Todo objeto python debe incluir como primer parámetro una referencia a sí mismo. Esta es justamente 
+                        la función del parámetro <em>self</em>, el cual no debe llamarse así por alguna razón, pero se 
+                        considera una convensión.
                     </p>
                     <h4>Importación de módulos</h4>
                     <p>
@@ -692,6 +700,29 @@
                 </section>
                 <!-- #endregion -->
                 <hr>
+                <!-- #region Flask-SQLAlchemy-->
+                <section id="section_Flask_SQLAlchemy">
+                    <h2>Flask-SQLAlchemy</h2>
+                    <p>
+                        Un ORM (Object-Relational Mapping) permite realizar operaciones contra una base de datos
+                        desde el código de un servidor, de una forma "alto nivel". Flask-SQLAlchemy es un módulo 
+                        creado para comunicar una aplicacion Flask con SQLAlchemy, el ORM de Python. Facilita la 
+                        configuración del ORM y estrucuta la vinculación de los modelos de nuestro sistema. 
+                    </p>
+                    <p>
+                        Podemos usar SQLAlchemy para realizar consultas a una base de datos escribiéndolas
+                        en texto plano. Primero se importa el módulo, se crea el objeto "db", que será 
+                        la conexión con la bdd.
+                        <p class="codigo">
+                            from sqlalchemy import create_engine <br>
+                            from sqlalchemy.orm import scoped_session, sessionmaker <br>
+                            engine = create_engine('conection_url') <br>
+                            db = scoped_session(sessionmaker(bind=engine))
+                        </p>
+                    </p>
+                </section>
+                <!-- #endregion -->
+                <hr>
                 <!-- #region BaseDeDatos-->
                 <section id="section_bdd">
                     <h2>Base de datos</h2>
@@ -874,6 +905,9 @@
                 <section id='section_fin'>
                     <h2>Enlaces útiles</h2>
                     <ul>
+                        <li>
+                            <a href="#">Módulo csv</a>
+                        </li>
                         <li>
                             <a href="#">Docs Flask</a>
                         </li>
