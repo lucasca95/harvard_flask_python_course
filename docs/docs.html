@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="docs.css">
 </head>
 <body>
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-2"></div>
@@ -41,7 +40,7 @@
                         <a class="nav-link" href="#section_gitvsgithub">Git VS Github</a>
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="#section_gitvsgithub_1">GH Pages </a>
+                                <a class="nav-link" href="#section_gitvsgithub_1">GitHub Pages </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#section_gitvsgithub_2">Branching</a>
@@ -77,15 +76,25 @@
                         <a class="nav-link" href="#section_SQLAlchemy">SQLAlchemy</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#section_flask_socketio">SocketIO</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#section_bdd">Base de datos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#section_js">JavaScript</a>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#js_ejemplos">Ejemplos JS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section_js_sockets">Web Sockets</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#section_fin">Enlaces útiles</a>
                     </li>
-                    
                 </ul>
             </div>
             <!-- #endregion -->
@@ -385,6 +394,8 @@
                         <li>style</li>
                         <li>class</li>
                         <li>type</li>
+                        <li>data</li>
+                        <li>id</li>
                         <li>...</li>
                     </ul>
                     <h4>Propiedades HTML</h4>
@@ -942,6 +953,37 @@
                 </section>
                 <!-- #endregion -->
                 <hr>
+                <!-- #region Flask-SocketIO-->
+                <section id="section_flask_socketio">
+                    <h2>Flask-SocketIO</h2>
+                    <p>
+                        Permite establecer canales de comunicación ágil entre un servidor (python) y un cliente (javascript). Importamos 
+                        el objeto SocketIO y el objeto emit así:
+                    </p>
+                    <p class="codigo">
+                        from flask_socketio import SocketIO, emit
+                    </p>
+                    <p>
+                        Flask sabrá con qué método responder a cada evento de un socket gracias al uso de un decorador, el cual 
+                        recibe como argumento el nombre del evento a escuchar. El método puede recibir datos como parámetros en formato 
+                        JSON (o diccionario). En caso de tener que responder con datos al client-side, el objeto <strong>emit</strong> 
+                        podrá generar un evento y enviar datos al mismo tiempo. Mediante el parámetro <em>broadcast</em> podemos 
+                        especificar si la el mensaje deberá afectar a todos los escuchas del evento o no.
+                    </p>
+                    <p class="codigo">
+                        # El socket recibe de parte del cliente un evento de nombre 'submit vote' <br>
+                        @socketio.on('submit_vote') <br>
+                        def vote(data): <br>
+                        &nbsp;&nbsp;&nbsp;selection = data["selection"] <br>
+                        &nbsp;&nbsp;&nbsp;votes[selection] += 1 <br>
+                        &nbsp;&nbsp;&nbsp;# Emitimos un evento, una señal, de nombre 'announce vote' <br>
+                        &nbsp;&nbsp;&nbsp;# el parametro broadcast=True permite enviar la informacion a todos los sockets que esten escuchando, incluyendo el usuario actual <br>
+                        &nbsp;&nbsp;&nbsp;emit('announce vote', {'yes': votes['yes'], 'no': votes['no'], 'maybe': votes['maybe']}, broadcast=True)
+                    </p>
+                    <p>Para ver el código client-side dar click <a href="#section_js_sockets">aquí</a>.</p>
+                </section>
+                <!-- #endregion -->
+                <hr>
                 <!-- #region BaseDeDatos-->
                 <section id="section_bdd">
                     <h2>Base de datos</h2>
@@ -1182,9 +1224,28 @@
                         coincidan con lo pedido, respectivamente.
                     </p>
                     <h5>Ejemplos de querySelector</h5>
-                        <p class="codigo">document.querySelector('tag')</p>
-                        <p class="codigo">document.querySelector('#id')</p>
-                        <p class="codigo">document.querySelectorAll('.class')</p>
+                        <p class="codigo">
+                            document.querySelector('tag')
+                        </p>
+                        <p class="codigo">
+                            document.querySelector('#id')
+                        </p>
+                        <p class="codigo">
+                            document.querySelectorAll('.class')
+                        </p>
+                    <h4>Local Storage</h4>
+                    <p>
+                        JS nos permite almacenar información en la pc del usuario mediante LOCAL STORAGE. El elemento localStorage permite 
+                        <strong>guardar información</strong> con el formato 
+                        <p class="codigo">localStorage.setItem('key', value);</p>
+                        y recuperarla con 
+                        <p class="codigo">localStorage.getItem('key');</p>
+                        <p>
+                            Las keys del localStorage se almacenan según el nombre de domino, evitando pisar valores de igual clave para 
+                            distintos sitios web. Sin embargo, hay que tener cuidado si usamos localStorage con igual nombre de claves 
+                            en dos páginas distintas pero en el mismo dominio, como por ejemplo la casa de uno, para no pisar valores.
+                        </p>
+                    </p>
                     <h4>Eventos</h4>
                     <p>
                         Al importar código JS éste correrá de forma secuencial. En muchos casos no es lo que buscamos que suceda, por lo que 
@@ -1211,6 +1272,9 @@
                             onblur -- cuando un elemento pierde el foco
                         </li>
                         <li>
+                            onsubmit -- cuando se envían datos de un formulario
+                        </li>
+                        <li>
                             DOMContentLoaded -- cuando la página se termina de cargar
                         </li>
                         <li>
@@ -1232,6 +1296,161 @@
                         de un navegador. Para esto hay que entrar en el "modo programador" ejecutando Ctrl+Shift+C y haciendo 
                         click en el apartado <em>Console</em>.
                     </p>
+                    <h4>AJAX</h4>
+                    <p>
+                        AJAX (Asincronic Javascript And XML) nos permite generar requests para pedir información a un servidor 
+                        sin tener que recargar la página completa. Una de las formas de usar AJAX es enviar información al 
+                        servidor por medio de un formulario y recibir una response JSON.
+                    </p>
+                    <h4 id="section_js_sockets">Web sockets</h4>
+                    <p>
+                        Cuando hablamos de comunicación cliente-servidor, el servidor responde a cada pedido del cliente.
+                        Si no hay pedidos no hay respuestas. En una aplicacion de chat, por ejemplo, nosotros quisieramos no tener 
+                        que actualizar la página para ver nuevos mensajes. En realidad nos gustaría que la actualización fuese en 
+                        tiempo real (full-duplex comunication). 
+                    </p>
+                    <p>
+                        Socket.IO es biblioteca JS que permite hacer esto. La importamos agregando esta línea dentro del <strong>head</strong>
+                        del documento HTML.
+                    </p>
+                    <p class="codigo">
+                       <\script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"><\/script>
+                    </p>
+                    <p>
+                        Creamos un objeto socket
+                    </p>
+                    <p class="codigo">
+                        // conectar el socker entre el cliente y el server <br>
+                        // La siguiente linea es standar <br>
+                        var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+                    </p>
+                    <p>
+                        Un objeto socket responde a eventos. Algunos son definidos por la biblioteca y otros por el programador con un simple String. 
+                        Definimos un comportamiento para el socket para cuando se haya conectado con el server-side (lo logramos con el 
+                        evento "connect"). En el caso que sigue cuando el socket se haya conectado, definimos que todos los botones de la página al 
+                        ser clickeados deberán crear una variable llamada "selection" la cual almacenará el voto que represente el atirbuto "data" del 
+                        botón que haya sido clickeado. Luego, se indica al socket en el client-side que genere un evento, definido por el programador, 
+                        llamado "submit_vote" y que conlleva un parámetro que es simplemente un diccionario con el valor de la variable "selection".
+                    </p>
+                    <p class="codigo">
+                        // El objeto socket responde a eventos <br>
+                        // Cuando el socket se conecte... <br>
+                        socket.on('connect', () => { <br>
+                        &nbsp;&nbsp;&nbsp;document.querySelectorAll('button').forEach(button => { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button.onclick = () => { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const selection = button.dataset.vote; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// El objeto socket emite un evento de nombre 'submit vote' <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Lo que se envía al server es el diccionario que se esta pasando como segundo parámetro <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;socket.emit('submit_vote', {'selection': selection}) <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}; <br>
+                        &nbsp;&nbsp;&nbsp;}); <br>
+                        });
+                    </p>
+                    <p>Para ver el código server-side dar click <a href="#section_flask_socketio">aquí</a>.</p>
+                    <h4 id="js_ejemplos">Ejemplos JS</h4>
+                    <ul>
+                        <div class="accordion" id="accordionJS">
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseJS1" aria-expanded="true" aria-controls="collapseJS1">
+                                    Modificar estilo de un elemento html
+                                </button>
+                                <div id="collapseJS1" class="collapse" data-parent="#accordionJS">
+                                    <div class="card-body">
+                                        <p class="codigo">
+                                            const elem = document.querySelector('selectorCSS') <br>
+                                            elem.style.color = 'red';
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseJS2" aria-expanded="true" aria-controls="collapseJS2">
+                                    Tomar el valor del atributo <strong>data</strong> de un elemento html.
+                                </button>
+                                <div id="collapseJS2" class="collapse" data-parent="#accordionJS">
+                                    <div class="card-body">
+                                        Codigo html 
+                                        <p class="codigo">
+                                            <\button class="btn_color" data-unColor="blue">Color azul<\/button>
+                                        </p>
+                                        <p class="codigo">
+                                            const elem = document.querySelector('.btn_color') <br>
+                                            elem.style.color = elem.dataset.unColor;
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseJS3" aria-expanded="true" aria-controls="collapseJS3">
+                                    ArrowFunctions
+                                </button>
+                                <div id="collapseJS3" class="collapse" data-parent="#accordionJS">
+                                    <div class="card-body">
+                                        <p>
+                                            Es tan frecuente el uso de funciones sin parámetros y el pasaje de éstas como parámetro de otras que JS define 
+                                            lo que se conoce como <strong>Arrow Functions</strong>.
+                                        </p>
+                                        <p class="codigo">
+                                            () => { <br>
+                                            &nbsp;&nbsp;&nbsp;alert('Usamos un arrow function'); <br>
+                                            }
+                                        </p>
+                                        <p>Si quisieramos enviarle un parámetro a un arrow function...</p>
+                                        <p class="codigo">
+                                            (x) => { <br>
+                                                &nbsp;&nbsp;&nbsp;alert(x); <br>
+                                            }
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseJS4" aria-expanded="true" aria-controls="collapseJS4">
+                                    Crear elemento html y agregarlo al DOM
+                                </button>
+                                <div id="collapseJS4" class="collapse" data-parent="#accordionJS">
+                                    <div class="card-body">
+                                        <p>Se toma el elemento ul y se le agrega un li</p>
+                                        <p class="codigo">
+                                            // Crear el nuevo elemento li <br>
+                                            const new_li = document.createElement('li'); <br>
+                                            new_li.innerHTML = 'Nuevo list item!'; <br>
+                                            <br>
+                                            // agregar el list item a la lista con id "ul_elem" <br>
+                                            document.querySelector('#ul_elem').<strong>append</strong>(new_li);
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseJS" aria-expanded="true" aria-controls="collapseJS">
+                                    setInterval
+                                </button>
+                                <div id="collapseJS" class="collapse" data-parent="#accordionJS">
+                                    <div class="card-body">
+                                        <p>
+                                            Mediante 'setInterval' podemos ejecutar una función determinada, cada cierto tiempo.
+                                        </p> 
+                                        <p class="codigo">
+                                            setInterval(nomFunción, milisegundos);
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseJS" aria-expanded="true" aria-controls="collapseJS">
+                                    ...
+                                </button>
+                                <div id="collapseJS" class="collapse" data-parent="#accordionJS">
+                                    <div class="card-body">
+                                        <p class="codigo">
+                                            ...
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </div>
+                    </ul>
                 </section>
                 <!-- #endregion -->
                 <hr>
@@ -1252,6 +1471,13 @@
                             <a href="#">Docs Flask-RESTFul</a>
                         </li>
                         <li>
+                            <a href="https://flask-socketio.readthedocs.io/en/latest/">Docs Flask-SocketIO (server-side)</a>
+                        </li>
+                        <li>
+                            <a href="https://socket.io/">Docs SocketIO (client-side)</a>
+                        </li>
+                        
+                        <li>
                             <a href="https://requests.readthedocs.io/es/latest/">Módulo Requests</a>
                         </li>
                     </ul>
@@ -1265,13 +1491,10 @@
                 </section>
             </div>
         </div>
-    
-        
     </div>
     <footer>
         Lucas Agustín Camino - lucascamino95@gmail.com
     </footer>    
-    
     
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

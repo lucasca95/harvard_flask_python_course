@@ -55,6 +55,12 @@ ul{
     top: 0;
     bottom: 2rem;
     overflow-y: scroll;
+
+    li{
+        li{
+            width: 200px;
+        }
+    }
 }
 .nav-link{
     color: rgb(196, 86, 13);
