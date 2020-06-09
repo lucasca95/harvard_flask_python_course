@@ -24,10 +24,29 @@
                         <a class="nav-link" href="#section_inicio">Inicio</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#section_CSV">CSV</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#section_http">HTTP</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#section_api">API</a>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section_api_json">JSON</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#section_gitvsgithub">Git VS Github</a>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section_gitvsgithub_1">GH Pages </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section_gitvsgithub_2">Branching</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#section_2">El lenguaje HTML</a>
@@ -61,25 +80,16 @@
                         <a class="nav-link" href="#section_bdd">Base de datos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#section_fin"><strong>Enlaces útiles</strong></a>
+                        <a class="nav-link" href="#section_js">JavaScript</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section_fin">Enlaces útiles</a>
                     </li>
                     
                 </ul>
             </div>
             <!-- #endregion -->
             <div class="col-10">
-                <!-- #region ArchivosCSV-->
-                <section id="section_CSV">
-                    <h2>Archivos .CSV</h2>
-                    <p>
-                        Los archivos CSV son utilizados para manejar datos. Cada línea es un dato y 
-                        cada atributo está separado por una coma. De ahí el nombre: Comma Separated Values.
-                    </p>
-                    <p>
-                        Para trabajar este tipo de archivos desde Python se puede importar el módulo 
-                        llamado <strong>csv</strong>.
-                    </p>
-                </section>
                 <!-- #region Inicio-->
                 <section id='section_inicio'>
                     <h1>My Docs - Harvard Web Course</h1>
@@ -93,12 +103,146 @@
                 </section>
                 <!-- #endregion -->
                 <hr>
-                <!-- #region Http-->
-                <section id='section_inicio'>
+                <!-- #region Archivos CSV-->
+                <section id="section_CSV">
+                    <h2>Archivos .CSV</h2>
+                    <p>
+                        Los archivos CSV son utilizados para manejar datos. Cada línea es un dato y 
+                        cada atributo está separado por una coma. De ahí el nombre: Comma Separated Values.
+                    </p>
+                    <p>
+                        Para trabajar este tipo de archivos desde Python se puede importar el módulo 
+                        llamado <strong>csv</strong>.
+                    </p>
+                </section>
+                <!-- #endregion -->
+                <hr>
+                <!-- #region http-->
+                <section id='section_http'>
                     <h2>HTTP</h2>
                     <p>
                         Las siglas HTTP refieren a HyperText Transfer Protocol. Gracias a él funciona internet. Es el protocolo utilizado para comunicar servidores.
                     </p>
+                    <p>Métodos HTTP y sus significados</p>
+                    <ul>
+                        <li>
+                            GET: tomar un recurso
+                        </li>
+                        <li>
+                            POST: crear un nuevo recurso
+                        </li>
+                        <li>
+                            PUT: modificar un recurso 
+                        </li>
+                        <li>
+                            PATCH: actualizar un recurso 
+                        </li>
+                        <li>
+                            DELETE: borrar un recurso
+                        </li>
+                    </ul>
+                    <h4>Making Requests</h4>
+                    <p>
+                        Desde Python, con el modulo "requests" podemos hacer distintos requests con cada tipo de metodo http.
+                        request.text() devuelve el contenido de texto plano de un sitio.
+                        <p>Hacer un request de tipo GET con parámetros (opcionales) a una url.</p>
+                        <p class="codigo">
+                            requests.get('url', params={'param1': valor1, 'param2': valor2})
+                        </p>
+                        <p>Hacer un request de tipo POST a una url.</p>
+                        <p class="codigo">
+                            requests.post('url')
+                        </p>
+                    </p>
+                    <h4>Status codes</h4>
+                    <p>
+                        Cuando hacemos un pedido http la response contiene un código. Algunos de ellos son:
+                    </p>
+                    <ul>
+                        <li>
+                            200 OK
+                        </li>
+                        <li>
+                            201 Created 
+                        </li>
+                        <li>
+                            400 Bad request
+                        </li>
+                        <li>
+                            403 Forbidden 
+                        </li>
+                        <li>
+                            404 Not found 
+                        </li>
+                        <li>
+                            405 Method not allowed 
+                        </li>
+                        <li>
+                            422 Unprocessable entity
+                        </li>
+                    </ul>
+                </section>
+                <!-- #endregion -->
+                <hr>
+                <!-- #region api-->
+                <section id='section_api'>
+                    <h2>API</h2>
+                    <p>
+                        Podemos entender a las APIs como protocolos que mantienen las aplicaciones para 
+                        interactuar entre sí para enviar o recibir informacion. Es la interfaz que una 
+                        aplicacion tiene para funcionar con otras. Una API entiende qué es lo que el 
+                        usuario quiere por medio de la combinación <strong>URL + Método HTTP</strong>. Las aplicaciones 
+                        trabajan enviando y recibiendo <strong>recursos</strong>.
+                    </p>
+                    <h4>API KEY</h4>
+                    <p>
+                        Muchas veces tenemos restringido el acceso a una api por medio de una API Key.
+                        Esto se hace para no saturar el acceso. Además, gracias a la key podemos controlar qué información
+                        retornarle a un usuario dado, al acceder a la api.
+                    </p>
+                    <h4 id="section_api_json">JSON</h4>
+                    <p>
+                        Uno de los formatos más utilizados para comunicar datos entre aplicaciones es JSON. Las siglas 
+                        significan JavaScript Object Notation. JSON permite representar objetos en texto plano, mediante 
+                        el formato estándar <strong>'llave':valor</strong>, al igual que lo hace un diccionario Python.
+                    </p>
+                    <h5>Tomar el JSON de una response desde el servidor</h5>
+                    <p class="codigo">
+                        response = requests.get('url')
+                        data = response.json()
+                    </p>
+                    <p>
+                        Tomar un dato particular
+                    </p>
+                    <p class="codigo">
+                        # Con esta estructura <br>
+                        { <br>
+                            &nbsp;&nbsp;&nbsp;... <br>
+                            &nbsp;&nbsp;&nbsp;'key1': value <br>
+                            &nbsp;&nbsp;&nbsp;... <br>
+                        } <br>
+                        dato = data['key1']
+                    </p>
+                    <p class="codigo">
+                        # Con esta estructura <br>
+                        { <br>
+                            &nbsp;&nbsp;&nbsp;... <br>
+                            &nbsp;&nbsp;&nbsp;'key1'{ <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'key2': value <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... <br>
+                                &nbsp;&nbsp;&nbsp;} <br>
+                                &nbsp;&nbsp;&nbsp;... <br>
+                        } <br>
+                        dato = data['key1']['key2']
+                    </p>
+                    <h4>APIs que deberías conocer</h4>
+                    <ul>
+                        <li>
+                            <a href="https://fixer.io/">fixer.io</a>
+                            Permite conocer la conversión de una divisa a otra actualizada al momento actual.
+                        </li>
+                    </ul>
                 </section>
                 <!-- #endregion -->
                 <hr>
@@ -208,11 +352,11 @@
                         >>>>> 1239ncu129d129d8h1dn1209120d81n20d    hash que identifica al commit <br>
                         //codigo<br>
                     </p>
-                    <h4>GitHub Pages</h4>
+                    <h4 id="section_gitvsgithub_1">GitHub Pages</h4>
                     <p>Podemos hostear en GitHub una página estática de forma gratuita, referenciando 
                         desde las opciones de un repositorio un archivo ".html"
                     </p>
-                    <h4>Branching</h4>
+                    <h4 id="section_gitvsgithub_2">Branching</h4>
                     <p>Cuando trabajamos en un proyecto sobre un repositorio Git permite llevar nuestro
                         trabajo por distintas ramas (branches). Esto es útil para emprolijar el desarrollo
                         y organizar la implementación de distintas funcionalidades o módulos o tareas de 
@@ -231,11 +375,28 @@
                         existen otros que sólo aplican a cierto tipo de elementos. Es cuestión de ir familiarizándose con 
                         el lenguaje para poder acostumbrarse a ellos.
                     </p>
-                    <h4>Atributos</h4>
+                    <p>
+                        La estructura de una página web responde al modelo conocido como <strong>DOM</strong> (Document Object Model).
+                        Existe un elemento raíz, del cual nacen los demás. Los diferentes tags representan elementos y 
+                        cada uno puede contener otros y así siguiendo.
+                    </p>
+                    <h4>Atributos HTML</h4>
                     <ul>
                         <li>style</li>
                         <li>class</li>
                         <li>type</li>
+                        <li>...</li>
+                    </ul>
+                    <h4>Propiedades HTML</h4>
+                    <ul>
+                        <li>innerHTML
+                            <p>
+                                Almacena el contenido de una etiqueta html, desde el tag de apertura hasta el tag 
+                                de cierre.
+                            </p>
+                        </li>
+                        <li></li>
+                        <li></li>
                         <li>...</li>
                     </ul>
                 </section>
@@ -959,6 +1120,121 @@
                 </section>
                 <!-- #endregion -->
                 <hr>
+                <!-- #region js-->
+                <section id="section_js">
+                    <h2>JavaScript</h2>
+                    <p>
+                        El funcionamiento de internet se basa en el paradigma cliente-servidor. Generalmente, el servidor es muy potente 
+                        en cuestiones de performance pero aún así puede saturarse si es muy demandado. JavaScript (JS) es uno de los lenguajes 
+                        más utilizados del lado del cliente y la razón de su existencia se relaciona con disminuir la demanda (la carga) 
+                        de un servidor, lograr la ejecución de operaciones rápidas evitando los tiempos de comunicación agregados por 
+                        la red.
+                    </p>
+                    <p>
+                        Cada navegador "es un mundo" en cuanto al entendimiento de JavaScript por lo que se recurre a la adopción de estándares,
+                        que no son más que reglas para que todos nos pongamos de acuerdo sobre versiones de JS que todo navegador 
+                        debe entender por igual. Hoy en día el estandar más popular es el "ES6".
+                    </p>
+                    <p>
+                        El código JS se incluye en un archivo html. Puede escribirse directamente en él o importarse, al igual que 
+                        el código CSS. Las sentencias JS se incluyen dentro del tag <em>script</em> y cada una termina con punto y coma ";".
+                    </p>
+                    <p>
+                        JS permite manipular objetos del DOM para modificar su comportamiento o la estructura general de la página de forma 
+                        programática, es decir, dinámica.
+                    </p>
+                    <p>
+                        En JS podemos referirnos a la página actual como un documento. De hecho, eso es lo que es: un documento ".html". 
+                        Lo hacemos por medio de una variable global llamada <strong>document</strong>.
+                    </p>
+                    <h4>Variables JS</h4>
+                    <p>
+                        Las formas de definir variables según alcance son tres: const, let y var.
+                    </p>
+                    <ul>
+                        <li>
+                            const   ->  no puede cambiar su valor. Alcance limitado al bloque donde se declara.
+                        </li>
+                        <li>
+                            let     ->  variable que no existe fuera del bloque donde fue declarada.
+                        </li>
+                        <li>                            
+                            var     ->  vive en toda la funcion donde fue declarada.
+                        </li>
+                    </ul>
+                    <h4>Comparación JS</h4>
+                    <p>
+                        El símbolo "<strong>===</strong>" es el que usaremos en JS para comparar variables ya que éste no sólo compara el 
+                        contenido de dos variables sino también su tipo de dato
+                    </p>
+                    <h4>Funciones JS</h4>
+                    <p>La definición de una función JS es de la forma:
+                        <p class="codigo">
+                            function nombre_funcion(){ <br>
+                            &nbsp;&nbsp;&nbsp; //código <br>
+                            }
+                        </p>
+                    </p>
+                    <p>
+                        Previo a la manipulación de elementos del DOM es necesario seleccionarlos. Para ello existen los métodos del objeto 
+                        <em>document</em> llamados <em>querySelctor</em> y <em>querySelctorAll</em> que, dado un selector CSS, devuelven 
+                        el primer elemento del documento (de arriba hacia abajo) que se encuentre, o todos los elementos del documento que 
+                        coincidan con lo pedido, respectivamente.
+                    </p>
+                    <h5>Ejemplos de querySelector</h5>
+                        <p class="codigo">document.querySelector('tag')</p>
+                        <p class="codigo">document.querySelector('#id')</p>
+                        <p class="codigo">document.querySelectorAll('.class')</p>
+                    <h4>Eventos</h4>
+                    <p>
+                        Al importar código JS éste correrá de forma secuencial. En muchos casos no es lo que buscamos que suceda, por lo que 
+                        definimos funciones que se ejecuten cuando cierto <strong>EVENTO</strong> ocurre.
+                    </p>
+                    <h4>Listado de eventos</h4>
+                    <ul>
+                        <li>
+                            onclick -- cuando se hace click
+                        </li>
+                        <li>
+                            onmouseover -- cuando se le pone el cursor del mouse arriba
+                        </li>
+                        <li>
+                            onkeydown -- cuando se presiona una tecla
+                        </li>
+                        <li>
+                            onkeyup -- cuando se suelta una tecla
+                        </li>
+                        <li>
+                            onload -- cuando la pagina carga completamente
+                        </li>
+                        <li>
+                            onblur -- cuando un elemento pierde el foco
+                        </li>
+                        <li>
+                            DOMContentLoaded -- cuando la página se termina de cargar
+                        </li>
+                        <li>
+                            ...
+                        </li>
+                    </ul>
+                    <h5>Ejemplos de eventos</h5>
+                    <p>
+                        Podemos agregar EventListeners al objeto document de la siguiente manera:
+                        <p class="codigo">
+                            document.addEventListener('nomEvento', function(){ <br>
+                            &nbsp;&nbsp;&nbsp;//codigo <br>
+                            });
+                        </p>
+                    </p>
+                    <h4>La consola</h4>
+                    <p>
+                        Si bien es difícil debuguear un código JS podemos ejecutar sentencias de código desde la consola 
+                        de un navegador. Para esto hay que entrar en el "modo programador" ejecutando Ctrl+Shift+C y haciendo 
+                        click en el apartado <em>Console</em>.
+                    </p>
+                </section>
+                <!-- #endregion -->
+                <hr>
                 <!-- #region Enlaces Útiles-->
                 <section id='section_fin'>
                     <h2>Enlaces útiles</h2>
@@ -974,6 +1250,9 @@
                         </li>
                         <li>
                             <a href="#">Docs Flask-RESTFul</a>
+                        </li>
+                        <li>
+                            <a href="https://requests.readthedocs.io/es/latest/">Módulo Requests</a>
                         </li>
                     </ul>
                 </section>

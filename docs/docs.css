@@ -46,10 +46,9 @@ ul {
   background-color: #03182c;
   padding: 1px;
   position: fixed;
-  width: 100%;
-  overflow-y: scroll;
   top: 0;
-  bottom: 2rem; }
+  bottom: 2rem;
+  overflow-y: scroll; }
 
 .nav-link {
   color: #c4560d; }
