@@ -6,7 +6,7 @@
     <title>My Docs</title>
     
     <!-- Fuentes de google -->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Architects+Daughter&family=Manrope&display=swap" rel="stylesheet"> 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- CSS propia -->
@@ -51,10 +51,13 @@
                         <a class="nav-link" href="#section_2">El lenguaje HTML</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#section_3">El lenguaje CSS</a>
+                        <a class="nav-link" href="#section_css">El lenguaje CSS</a>
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="#section_3_1">SCSS</a>
+                                <a class="nav-link" href="#section_css_scss">SCSS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section_css_animations">Animaciones</a>
                             </li>
                         </ul>
                     </li>
@@ -85,12 +88,21 @@
                         <a class="nav-link" href="#section_js">JavaScript</a>
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="#js_ejemplos">Ejemplos JS</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="#section_js_sockets">Web Sockets</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#js_templates">JS Templates JS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section_js_svg">SVG</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#js_ejemplos">Ejemplos JS</a>
+                            </li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section_pages">Single/Multi Pages</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#section_fin">Enlaces útiles</a>
@@ -414,7 +426,7 @@
                 <!-- #endregion -->
                 <hr>
                 <!-- #region CSS-->
-                <section id="section_3">
+                <section id="section_css">
                     <h2>El lenguaje CSS</h2>
                     <p>Es un lenguaje que permite modificar la apariencia de los elementos de una página web.
                         Todo elemento HTML tiene ciertas "propiedades". CSS permite modificar los valores de las mismas
@@ -534,7 +546,7 @@
                             varía del código css normal.
                         </p>
                     </div>
-                    <h4 id="section_3_1">SCSS</h4>
+                    <h4 id="section_css_scss">SCSS</h4>
                     <div>
                         <p>
                             Gracias a una poderosa gema Ruby llamada <strong>sass</strong> podemos utilizar código SCSS para definir 
@@ -571,6 +583,43 @@
                             }
                         </p>
                     </div>
+                    <h4 id="section_css_animations">Animaciones</h4>
+                    <p>
+                        Podemos dar la ilusión de tener elementos html animados usando CSS. Una animación no es más que 
+                        instrucciones CSS que permiten establecer para un cierto elemento, propiedades de un estado inicial 
+                        y de uno final, y se indica en cuánto tiempo se necesita que se llegue de uno a otro.
+                    </p>
+                    <p>
+                        En un archivo .css definimos una animacion css con <strong>@keyframes</strong> y dentro pondremos dos estados: inicial (from) y 
+                        final (to). Dentro de cada estado indicamos los valores de los atributos que deberá tener un elemento animado.
+                    </p>
+                    <p> Si nuestra animación requiere más de dos estados, podemos establecer el comportamiento CSS especificando porcentaje
+                        de tiempo de duración.
+                    </p>
+                    <p>Ej: agrandamos un titulo de 20px a 100px en un lapso de 2 segundos.</p>
+                    <p class="codigo">
+                        @keyframes my_animation_name { <br>
+                        &nbsp;&nbsp;&nbsp;from { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... propiedades a definir para estado inicial <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-size: 20px: <br>
+                        &nbsp;&nbsp;&nbsp;} <br>
+                        &nbsp;&nbsp;&nbsp;to { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... propiedades a definir para estado final <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-size: 100px: <br>
+                        &nbsp;&nbsp;&nbsp;} <br>
+                        } <br>
+                        h1 { <br>
+                        &nbsp;&nbsp;&nbsp;animation_name: my_animation_name; <br>
+                        &nbsp;&nbsp;&nbsp;animation-duration: 2s; <br>
+                        &nbsp;&nbsp;&nbsp;animatino-fill-mode: forwards; <br>
+                        }
+                    </p>
+                    <h5>Más propiedades de una animación CSS</h5>
+                    <ul>
+                        <li>
+                            animation-iteration-count: infinite;
+                        </li>
+                    </ul>
                 </section>
                 <!-- #endregion -->
                 <hr>
@@ -580,6 +629,17 @@
                     <p>Esta sección contiene algunos datos útiles sobre el lenguaje. Python es usado en 
                         esta ocasión como lenguaje en el lado del servidor. No se espera que esta sección 
                         enseñe Python sino que se quiere resaltar aspectos que en lo personal considero importantes.
+                    </p>
+                    <h4>Valor por defecto en variable</h4>
+                    <p>
+                        Python permite establecer un valor por defecto a una variable, funcionalidad por de más útil 
+                        cuando esperamos un dato del client-side que puede venir <em>vacío</em>.     
+                    </p>
+                    <p class="codigo">
+                        start = int(request.form.get('start') or 0)
+                    </p>
+                    <p>
+                        En este caso, si no existe un elemento del form con name='start' con contenido, la variable <em>start</em> valdrá 0.
                     </p>
                     <h4>Imprimir en pantalla con formato</h4>
                     <p>Para imprimir variables junto con texto a partir de Python3 podemos usar:</p>
@@ -1275,6 +1335,9 @@
                             onsubmit -- cuando se envían datos de un formulario
                         </li>
                         <li>
+                            onscroll -- al deslizar la ventana
+                        </li>
+                        <li>
                             DOMContentLoaded -- cuando la página se termina de cargar
                         </li>
                         <li>
@@ -1302,6 +1365,7 @@
                         sin tener que recargar la página completa. Una de las formas de usar AJAX es enviar información al 
                         servidor por medio de un formulario y recibir una response JSON.
                     </p>
+
                     <h4 id="section_js_sockets">Web sockets</h4>
                     <p>
                         Cuando hablamos de comunicación cliente-servidor, el servidor responde a cada pedido del cliente.
@@ -1347,6 +1411,35 @@
                         });
                     </p>
                     <p>Para ver el código server-side dar click <a href="#section_flask_socketio">aquí</a>.</p>
+
+                    <h4 id="js_templates">JS Templates</h4>
+                    <p>
+                        Los Templates son estructuras de elementos HTML que se cargan dinámicamente con información para ser agregados al DOM.
+                        Una de las librerías que permite la creación de templates es <strong>Handlebars</strong>. Usamos un script marcado 
+                        con un ID para asociar un template que Handlebars sabrá leer para crear elementos recibiendo parámetros.
+                        Los templates de Handlebars se generan en el client-side, mientras que, con Flask-Python, los de Jinja2 se generan en el server-side.
+                        Handlebars permite usar estructuras de control. Para impedir que jinja actue y se confunda con sintaxis handlebar podemos usar:
+                    </p>
+                    <p class="codigo">
+                        {% raw -%} <br>
+                        &nbsp;&nbsp;&nbsp;... <br>
+                        {%- endraw %}                      
+                    </p>
+                    <h5>Generación de template con Handlebars</h5>
+                    <p class="codigo">
+                        COMPLETAR
+                    </p>
+                    <h4 id="section_js_svg">SVG</h4>
+                    <p>
+                        Con JS podemos dibujar figuras vectorizadas gracias al uso de la biblioteca <strong>d3</strong>. Un objeto SVG podrá existir
+                        dentro de un objeto "región SVG", que se inserta en una página html así:
+                    </p>
+                    <p class="codigo">
+                        <\svg style='width:100%; height:800px'>
+                        &nbsp;&nbsp;&nbsp;// esta es región svg de 800px de alto y ancho de la página.
+                        <\/svg>
+                    </p>
+
                     <h4 id="js_ejemplos">Ejemplos JS</h4>
                     <ul>
                         <div class="accordion" id="accordionJS">
@@ -1423,16 +1516,65 @@
                                 </div>
                             </li>
                             <li>
-                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseJS" aria-expanded="true" aria-controls="collapseJS">
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseJS5" aria-expanded="true" aria-controls="collapseJS5">
                                     setInterval
                                 </button>
-                                <div id="collapseJS" class="collapse" data-parent="#accordionJS">
+                                <div id="collapseJS5" class="collapse" data-parent="#accordionJS">
                                     <div class="card-body">
                                         <p>
                                             Mediante 'setInterval' podemos ejecutar una función determinada, cada cierto tiempo.
                                         </p> 
                                         <p class="codigo">
                                             setInterval(nomFunción, milisegundos);
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseJS6" aria-expanded="true" aria-controls="collapseJS6">
+                                    Auto loading
+                                </button>
+                                <div id="collapseJS6" class="collapse" data-parent="#accordionJS">
+                                    <div class="card-body">
+                                        <p>Hay que manipular el objeto document y el objeto window.</p>
+                                        <p class="codigo">
+                                            window.innerWidth           --  ancho de la ventana <br>
+                                            window.innerHeight          --  alto de la ventana
+                                        </p>
+                                        <p>
+                                            Tengamos en cuenta que la ventana puede estar mostrando sólo una parte del documento y las dimensiones del documento son mas grandes que las de la ventana.
+                                        </p>
+                                        <p class="codigo">
+                                            window.scrollY              --  cantidad de pixeles que estoy alejado desde el inicio del documento hasta el inicio de la ventana. <br>
+                                            document.body.offsetHeight  --  altura de todo el documento completo.
+                                        </p>
+                                        <p>
+                                            Con <em>window.scrollY</em> y <em>document.body.offsetHeight</em> puedo saber si estoy al final de la página y, en base a esto, ejecutar código JS para 
+                                            implementar <strong>autoloading</strong>.
+                                        </p>
+                                        <p class="codigo">
+                                            window.onscroll = () => { <br>
+                                            &nbsp;&nbsp;&nbsp;if(window.innerHeight + window.scrollY >= document.body.offsetHeight){ <br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// llegamos al fin de página <br>
+                                            &nbsp;&nbsp;&nbsp;} <br>
+                                            };
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseJS" aria-expanded="true" aria-controls="collapseJS">
+                                    Listener de clicks genérico
+                                </button>
+                                <div id="collapseJS" class="collapse" data-parent="#accordionJS">
+                                    <div class="card-body">
+                                        <p class="codigo">
+                                            document.addEventListener('click', event => { <br>
+                                            &nbsp;&nbsp;&nbsp;const element = event.target; <br>
+                                            &nbsp;&nbsp;&nbsp;if (element.className === 'nombreDeClase') { <br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...hacer algo con el objeto element; <br>
+                                            &nbsp;&nbsp;&nbsp;} <br>
+                                            });   
                                         </p>
                                     </div>
                                 </div>
@@ -1448,9 +1590,66 @@
                                         </p>
                                     </div>
                                 </div>
-                            </li>
+                            </li>                         
                         </div>
                     </ul>
+                </section>
+                <!-- #endregion -->
+                <hr>
+                <!-- #region section_pages-->
+                <section id="section_pages">
+                    <h2>Single vs Multi pages</h2>
+                    <p>
+                        Esta sección muestra dos arquitecturas de páginas web: single page y multi page. La primera consiste 
+                        en mantener secciones de una página como contenido dinámico, y en base al accionar del usuario o al paso del tiempo,
+                        ir modificándolo. La segunda, en cambio, trata de muchas páginas diferentes donde, si queremos cambiar el 
+                        contenido, necesariamente debemos cambiar de página. Estos conceptos en la práctica pueden convivir.
+                    </p>
+                    <p>
+                        La ganancia de una arquitectura single-page está en que podemos modificar SÓLO una porción de toda la página 
+                        ganando tiempo de carga y respuesta en el sitio. También se nos suma complejidad de código frente a la opción 
+                        multi-page. Un ejemplo de esto es que en single-page deberemos simular "manualmente" el cambio de url ya que 
+                        el navegador entenderá que siempre permanecemos en el mismo sitio.
+                    </p>
+                    <h4>HTML5 History API</h4>
+                    <p>
+                        ¿Cómo podemos simular ese cambio de url sin que la página deba recargarse completamente?
+                        En HTML5 tenemos lo que se llama "HTML5 History API". Es una funcionalidad de HTML que nos permite
+                        conocer el historial del navegador y actualizar la URL para mostrar lo que quiero.
+                        La forma de conseguirlo es hacer un PUSH del estado de la URL al historial del navegador. Esto
+                        se controla con JavaScript.
+                    </p>
+                    <p class="codigo">
+                        // history.pushState(param1, param2, param3); <br>
+                        &nbsp;&nbsp;&nbsp;// param1: dato que quiero asociar con el push <br>
+                        &nbsp;&nbsp;&nbsp;// param2: titulo de la pag que queremos pushear <br>
+                        &nbsp;&nbsp;&nbsp;// param3: URL que queremos pushear
+                    </p>
+                    <p>
+                        EJ:
+                    </p>
+                    <p class="codigo">
+                        history.pushState(null, name, name);
+                    </p>
+                    <p>Esta es la forma correcta de cambiar la URL en single-page.</p>
+                    <p>
+                        Si dejamos sólo estas líneas tendríamos un problema: si presiono la flecha 'atras' del navegador, 
+                        la URL cambiará pero no el contenido pertinente para esa URL. Esto se debe a que no tenemos un 
+                        codigo JS que le indique al navegador qué hacer si se presiona la flecha 'atras'. Para arreglarlo 
+                        necesitamos hacer un 'pop' a la pila de urls de la history API. La API dispone de un evento que se 
+                        llama '<strong>onpopstate</strong>' y es justamente lo que necesitamos para desapilar urls y darles un 
+                        comportamiento.
+                    </p>
+                    <p>
+                        Trabajamos con el objeto <em>window</em> y el método <strong>onpopstate</strong>.
+                    </p>
+                    <p class="codigo">
+                        window.onpopstate = e => { <br>
+                        &nbsp;&nbsp;&nbsp;const data = e.state; <br>
+                        &nbsp;&nbsp;&nbsp;document.title = data.title; <br>
+                        &nbsp;&nbsp;&nbsp;document.querySelector('main').innerHTML = data.text; <br>
+                        };
+                    </p>
                 </section>
                 <!-- #endregion -->
                 <hr>
@@ -1476,10 +1675,13 @@
                         <li>
                             <a href="https://socket.io/">Docs SocketIO (client-side)</a>
                         </li>
-                        
                         <li>
                             <a href="https://requests.readthedocs.io/es/latest/">Módulo Requests</a>
                         </li>
+                        <li>
+                            <a href="https://d3js.org/">SVG con d3</a>
+                        </li>
+                        
                     </ul>
                 </section>
                 <!-- #endregion -->
@@ -1493,7 +1695,7 @@
         </div>
     </div>
     <footer>
-        Lucas Agustín Camino - lucascamino95@gmail.com
+        <a href="https://github.com/lucasca95" target="_blank">Lucas Agustín Camino</a> - lucascamino95@gmail.com
     </footer>    
     
     <!-- Bootstrap JS -->

@@ -38,6 +38,7 @@ Cómo podemos simular ese cambio de url sin que la página deba recargarse compl
     // param3: URL que queremos pushear
     EJ:
         history.pushState(null, name, name);
+
 Esta es la forma correcta de cambiar la URL en single-page.
 Si dejamos sólo estas lineas tendriamos un problema: si presiono la flecha 'atras' del navegador, la URL 
 cambiara pero no el contenido pertinente para esa URL. Esto se debe a que no tenemos un codigo JS que le
@@ -109,8 +110,8 @@ Ahi es cuando entra a jugar JS. Podemos alterar con JS la propiedad de una css a
 
 Nos quedamos en min 1..00.
 Nos introducimos en CSS Animation, que no es más que instrucciones CSS
-que permiten establecer para un elemento un estado inicial y uno final,
-y se indica en cuánto tiempo se necesita que se llegue de uno a otro.
+que permiten establecer para un cierto elemento, propiedades de un estado inicial 
+y de uno final, y se indica en cuánto tiempo se necesita que se llegue de uno a otro.
 
 Definimos una animación mediante el indicador "@keyframes", el estado
 inicial con "from" y el final on "to".
@@ -174,7 +175,6 @@ document.addEventListener('click', event => {
         ...hacer algo con el objeto element;
     }
 });
-
 
 Hablamos de SVG (Scalar Vector Graphics)
 Un elemento SVG permite graficar formas definidas por nosotros

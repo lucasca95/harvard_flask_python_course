@@ -2,6 +2,7 @@ body{
     background-color: rgba(200, 204, 190, 0.719);
     color: black;
     font-family: 'Manrope', sans-serif;
+    font-size: large;
     text-align: justify;
 }
 footer{
@@ -13,6 +14,12 @@ footer{
     width: 100%;
     background-color: rgb(1, 9, 15);
     color: white;
+    a{
+        color: rgb(148, 225, 255);
+    }
+    a:hover{
+        color: orange;
+    }
 }
 hr{
     width: 50%;
@@ -41,7 +48,12 @@ ul{
 }
 
 .codigo{
-    font-style: italic;
+    // font-style: italic;
+
+    // font-family: 'Architects Daughter', cursive;
+    // font-size: larger;
+
+    font-family: 'Balsamiq Sans', cursive;
     padding-left: 7%;
 }
 .col-10{
@@ -67,7 +79,6 @@ ul{
 }
 .nav-link:hover{
     color: rgb(216, 190, 43);
-    // color: chartreuse;
 }
 .punto{
     font-size: xx-large;
