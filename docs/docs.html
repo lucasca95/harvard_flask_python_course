@@ -70,7 +70,12 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#section_5">Flask</a>
+                        <a class="nav-link" href="#section_flask">Flask</a>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section_flask_ajax_server">AJAX - Server</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#section_6">Jinja2</a>
@@ -88,7 +93,7 @@
                         <a class="nav-link" href="#section_js">JavaScript</a>
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="#section_js_ajax">AJAX</a>
+                                <a class="nav-link" href="#section_js_ajax_client">AJAX - Client</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#section_js_sockets">Web Sockets</a>
@@ -753,7 +758,7 @@
                 <!-- #endregion -->
                 <hr>
                 <!-- #region Flask-->
-                <section id="section_5">
+                <section id="section_flask">
                     <h2>Flask</h2>
                     <p>Flask es un microframework escrito en Python que facilita la creación y puesta en marcha de 
                         aplicaciones web. A su vez proporciona módulos que son útiles al momento de atender pedidos
@@ -861,6 +866,18 @@
                     <p>
                         Las variables de sesión mueren cuando el server se reinicia. Si lo que necesitamos es mayor 
                         persistencia hay que utilizar una <em>base de datos</em>.
+                    </p>
+                    <h4 id='section_flask_ajax_server'>AJAX - Server</h4>
+                    <p>
+                        Para responder ante un pedido AJAX enviado por el client-side basta con reservar una ruta para recibirlo.
+                        Con Flask podemos usar el módulo <strong>request</strong> para obtener datos enviados por POST del objeto 
+                        <strong>form</strong> con el método <strong>get</strong>. Incluso 
+                    </p>
+                    <p class='codigo'>
+                        @app.route('/rutaAJAX/', methods=['POST']) <br>
+                        def recibirAJAX(): <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;data1 = request.form.get('key1') <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return jsonify({'status': True})
                     </p>
                 </section>
                 <!-- #endregion -->
@@ -1366,7 +1383,7 @@
                         de un navegador. Para esto hay que entrar en el "modo programador" ejecutando Ctrl+Shift+C y haciendo 
                         click en el apartado <em>Console</em>.
                     </p>
-                    <h4 id="section_js_ajax">AJAX - Client</h4>
+                    <h4 id="section_js_ajax_client">AJAX - Client</h4>
                     <p>
                         AJAX (Asincronic Javascript And XML) nos permite generar requests para pedir información a un servidor 
                         sin tener que recargar la página completa. Una de las formas de usar AJAX es enviar información al 
@@ -1395,7 +1412,10 @@
                         request.onload = () => { <br>
                         &nbsp;&nbsp;&nbsp;const data = JSON.parse(request.responseText); <br>
                         &nbsp;&nbsp;&nbsp;console.log(data.key1); <br>
-                        &nbsp;&nbsp;&nbsp;console.log(data.key2); <br>
+                        &nbsp;&nbsp;&nbsp;// data.key2 is a list of elements <br>
+                        &nbsp;&nbsp;&nbsp;data.key2.forEach(element => { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Element value is ' + element); <br>
+                        &nbsp;&nbsp;&nbsp;}); <br>
                         };
                     </p>
                     <h4 id="section_js_sockets">Web sockets</h4>
