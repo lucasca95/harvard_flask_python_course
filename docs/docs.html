@@ -88,6 +88,9 @@
                         <a class="nav-link" href="#section_js">JavaScript</a>
                         <ul class="nav flex-column">
                             <li class="nav-item">
+                                <a class="nav-link" href="#section_js_ajax">AJAX</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="#section_js_sockets">Web Sockets</a>
                             </li>
                             <li class="nav-item">
@@ -1283,6 +1286,7 @@
                         el primer elemento del documento (de arriba hacia abajo) que se encuentre, o todos los elementos del documento que 
                         coincidan con lo pedido, respectivamente.
                     </p>
+                    
                     <h5>Ejemplos de querySelector</h5>
                         <p class="codigo">
                             document.querySelector('tag')
@@ -1293,13 +1297,16 @@
                         <p class="codigo">
                             document.querySelectorAll('.class')
                         </p>
+
                     <h4>Local Storage</h4>
                     <p>
                         JS nos permite almacenar información en la pc del usuario mediante LOCAL STORAGE. El elemento localStorage permite 
                         <strong>guardar información</strong> con el formato 
                         <p class="codigo">localStorage.setItem('key', value);</p>
-                        y recuperarla con 
+                        recuperarla con 
                         <p class="codigo">localStorage.getItem('key');</p>
+                        y borrarla con 
+                        <p class="codigo">localStorage.removeItem('key');</p>
                         <p>
                             Las keys del localStorage se almacenan según el nombre de domino, evitando pisar valores de igual clave para 
                             distintos sitios web. Sin embargo, hay que tener cuidado si usamos localStorage con igual nombre de claves 
@@ -1359,13 +1366,38 @@
                         de un navegador. Para esto hay que entrar en el "modo programador" ejecutando Ctrl+Shift+C y haciendo 
                         click en el apartado <em>Console</em>.
                     </p>
-                    <h4>AJAX</h4>
+                    <h4 id="section_js_ajax">AJAX - Client</h4>
                     <p>
                         AJAX (Asincronic Javascript And XML) nos permite generar requests para pedir información a un servidor 
                         sin tener que recargar la página completa. Una de las formas de usar AJAX es enviar información al 
                         servidor por medio de un formulario y recibir una response JSON.
                     </p>
-
+                    <p>
+                        Creación de un objeto <strong>request</strong> para realizar un pedido asincrónico a un servidor.
+                    </p>
+                    <p class="codigo">
+                        const request = new XMLHttpRequest(); <br>
+                        request.open('POST', '/ajax/chats/');
+                    </p>
+                    <p>
+                        Preparación y envío de datos al servidor en formato <em>strong>'key': value</strong></em>.
+                    </p>
+                    <p class="codigo">
+                        const data = new FormData(); <br>
+                        data.append('key1', value1); <br>
+                        data.append('key2', value2); <br>
+                        request.send(data);
+                    </p>
+                    <p>
+                        Definir código a ejecutar cuando el request haya sido atendido por el server-side. 
+                    </p>
+                    <p class="codigo">
+                        request.onload = () => { <br>
+                        &nbsp;&nbsp;&nbsp;const data = JSON.parse(request.responseText); <br>
+                        &nbsp;&nbsp;&nbsp;console.log(data.key1); <br>
+                        &nbsp;&nbsp;&nbsp;console.log(data.key2); <br>
+                        };
+                    </p>
                     <h4 id="section_js_sockets">Web sockets</h4>
                     <p>
                         Cuando hablamos de comunicación cliente-servidor, el servidor responde a cada pedido del cliente.
